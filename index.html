@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Farm Nest - Everything Farmers Need</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+ </head>
+</head>
+
+<body>
+  <!-- Header Section with Carousel -->
+  <header>
+    <div class="logo">
+      <h1>Farm Nest</h1>
+    </div>
+    <nav>
+      <ul id="navbar">
+        <li><a href="#home" class="nav-link" onclick="setActive('home')">Home</a></li>
+        <li><a href="#aboutus" class="nav-link" onclick="setActive('aboutus')">About Us</a></li>
+        <li><a href="#services" class="nav-link" onclick="setActive('services')">Services</a></li>
+        <li><a href="#weather" class="nav-link" onclick="setActive('weather')">Weather</a></li>
+        <li><a href="#knowledge" class="nav-link" onclick="setActive('knowledge')">Knowledge Base</a></li>
+        <li><a href="#customer" class="nav-link" onclick="setActive('customer')">Customer Care</a></li>
+      </ul>
+    </nav>
+
+    <!-- Carousel -->
+    <div id="headerCarousel" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-indicators">
+        <button type="button" data-bs-target="#headerCarousel" data-bs-slide-to="0" class="active" aria-current="true"
+          aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#headerCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#headerCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+      </div>
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img src="images/background.png" class="d-block w-100" alt="Farm Landscape">
+          <div class="carousel-caption d-none d-md-block">
+            <h5>Welcome to Farm Nest</h5>
+            <p>Your trusted partner in modern farming solutions.</p>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <img src="images/market.jpg" class="d-block w-100" alt="Livestock">
+          <div class="carousel-caption d-none d-md-block">
+            <h5>Expert Veterinary Care</h5>
+            <p>Ensuring the health and productivity of your livestock.</p>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <img src="images/vetcare.jpg" class="d-block w-100" alt="Marketplace">
+          <div class="carousel-caption d-none d-md-block">
+            <h5>Marketplace Connections</h5>
+            <p>Buy inputs and sell produce with ease.</p>
+          </div>
+        </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#headerCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#headerCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- About Us Section -->
+  <section class="about" id="aboutus">
+    <h2 class="heading">About <span>Us</span></h2>
+
+    <div class="container">
+      <div class="row about-container">
+        <!-- Our Mission Card -->
+        <div class="col-md-4">
+          <div class="card about-box">
+            <img src="images/mission.jpg" class="card-img-top" alt="Our Mission">
+            <div class="card-body">
+              <i class="fa-solid fa-bullseye"></i>
+              <h3 class="card-title">Our Mission</h3>
+              <p class="card-text">We are committed to revolutionizing agriculture through innovative solutions and
+                sustainable practices.</p>
+              <button onclick="openModal('mission')" class="btn btn-outline-primary">Learn More</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Our Team Card -->
+        <div class="col-md-4">
+          <div class="card about-box">
+            <img src="images/mission.jpg" class="card-img-top" alt="Our Team">
+            <div class="card-body">
+              <i class="fa-solid fa-users"></i>
+              <h3 class="card-title">Our Team</h3>
+              <p class="card-text">A dedicated group of experts passionate about empowering farmers.</p>
+              <button onclick="openModal('team')" class="btn btn-outline-primary">Meet Our Team</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Our Values Card -->
+        <div class="col-md-4">
+          <div class="card about-box">
+            <img src="images/vetcare.jpg" class="card-img-top" alt="Our Values">
+            <div class="card-body">
+              <i class="fa-solid fa-heart"></i>
+              <h3 class="card-title">Our Values</h3>
+              <p class="card-text">Guided by transparency, innovation, and sustainability.</p>
+              <button onclick="openModal('values')" class="btn btn-outline-primary">Explore Values</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Our Mission Modal -->
+    <div id="missionModal" class="modal-section">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3>Our Mission</h3>
+          <button class="close-button" onclick="closeModal('mission')">×</button>
+        </div>
+        <div class="modal-body">
+          <div class="modal-image">
+            <img src="images/mission.jpg" alt="Our Mission">
+          </div>
+          <div class="modal-text">
+            <h4>Driving Agricultural Innovation</h4>
+            <p>Our mission is to revolutionize agriculture by providing farmers with cutting-edge technology,
+              sustainable practices, and expert guidance. We aim to bridge the gap between traditional farming and
+              modern solutions, ensuring a brighter future for farming communities.</p>
+            <h4>Key Focus Areas:</h4>
+            <ul>
+              <li>Promoting sustainable farming techniques</li>
+              <li>Empowering farmers with knowledge and tools</li>
+              <li>Enhancing productivity through innovation</li>
+              <li>Building resilient agricultural ecosystems</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Our Team Modal -->
+    <div id="teamModal" class="modal-section">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3>Our Team</h3>
+          <button class="close-button" onclick="closeModal('team')">×</button>
+        </div>
+        <div class="modal-body">
+          <div class="modal-image">
+            <img src="images/team.jpg" alt="Our Team">
+          </div>
+          <div class="modal-text">
+            <h4>Meet Our Experts</h4>
+            <p>Our team consists of passionate professionals dedicated to supporting farmers and driving positive change
+              in the agricultural sector.</p>
+            <h4>Key Team Members:</h4>
+            <ul>
+              <li><strong>Dr. Sarah Kamau</strong> - Chief Veterinary Officer</li>
+              <li><strong>James Omondi</strong> - Head of Agricultural Advisory</li>
+              <li><strong>Grace Muteti</strong> - Marketplace Director</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Our Values Modal -->
+    <div id="valuesModal" class="modal-section">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3>Our Values</h3>
+          <button class="close-button" onclick="closeModal('values')">×</button>
+        </div>
+        <div class="modal-body">
+          <div class="modal-image">
+            <img src="images/values.jpg" alt="Our Values">
+          </div>
+          <div class="modal-text">
+            <h4>Guided by Core Principles</h4>
+            <p>We are committed to upholding the following values in everything we do:</p>
+            <ul>
+              <li><strong>Transparency:</strong> Open communication and honesty with our farmers and partners.</li>
+              <li><strong>Innovation:</strong> Constantly seeking new ways to improve agricultural practices.</li>
+              <li><strong>Sustainability:</strong> Protecting the environment and promoting sustainable farming methods.
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Our Services Section -->
+  <section class="services" id="services">
+    <h2 class="heading">Our <span>Services</span></h2>
+
+    <div class="container">
+      <div class="row service-container">
+        <!-- Veterinary Care Card -->
+        <div class="col-md-4">
+          <div class="card service-box">
+            <img src="images/vet.ad.jpg" class="card-img-top" alt="Veterinary Care">
+            <div class="card-body">
+              <i class="fa-solid fa-stethoscope"></i>
+              <h3 class="card-title">Veterinary Care</h3>
+              <p class="card-text">Professional virtual consultations and on-site visits for your livestock.</p>
+              <button onclick="openModal('veterinarycare')" class="btn btn-outline-primary">Learn More</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Agricultural Advice Card -->
+        <div class="col-md-4">
+          <div class="card service-box">
+            <img src="images/about.jpg" class="card-img-top" alt="Agricultural Advice">
+            <div class="card-body">
+              <i class="fa-solid fa-seedling"></i>
+              <h3 class="card-title">Agricultural Advice</h3>
+              <p class="card-text">Guidance on crop and livestock management techniques.</p>
+              <button onclick="openModal('agriculture')" class="btn btn-outline-primary">Learn More</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Marketplace Card -->
+        <div class="col-md-4">
+          <div class="card service-box">
+            <img src="images/market.jpg" class="card-img-top" alt="Marketplace">
+            <div class="card-body">
+              <i class="fa-solid fa-store"></i>
+              <h3 class="card-title">Marketplace</h3>
+              <p class="card-text">Buy inputs and sell produce directly to buyers.</p>
+              <button onclick="openModal('marketplace')" class="btn btn-outline-primary">Explore More</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Veterinary Care Modal -->
+    <div id="veterinarycareModal" class="modal-section">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3>Veterinary Care</h3>
+          <button onclick="openModal('veterinarycare')" class="btn">Learn More</button>
+        </div>
+        <div class="modal-body">
+          <div class="modal-image">
+            <img src="images/vetcare.jpg" alt="Veterinary Care">
+          </div>
+          <div class="modal-text">
+            <h4>Expert Veterinary Services</h4>
+            <p>We provide professional veterinary care to ensure your livestock remains healthy and productive. Our team
+              offers both virtual consultations and on-site visits.</p>
+            <h4>Our veterinary services include:</h4>
+            <ul>
+              <li>Routine health check-ups and preventive care</li>
+              <li>Vaccination programs tailored to your livestock</li>
+              <li>Disease diagnosis and treatment plans</li>
+              <li>Emergency care for critical situations</li>
+              <li>Nutritional advice for optimal animal health</li>
+              <li>Reproductive health management</li>
+            </ul>
+            <a href="#contact-us" class="btn" style="margin-top: 1rem;">Schedule a Consultation</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Agricultural Advice Modal -->
+    <div id="agricultureModal" class="modal-section">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3>Agricultural Advice</h3>
+          <button class="close-button" onclick="closeModal('agriculture')">×</button>
+        </div>
+        <div class="modal-body">
+          <div class="modal-list">
+            <h4>We provide expert agricultural advice on:</h4>
+            <ul>
+              <li><a href="#" onclick="showSection('crop-section'); return false;">Crop selection and rotation
+                  planning</a></li>
+              <li><a href="#" onclick="showSection('soil-section'); return false;">Soil health assessment and
+                  improvement strategies</a></li>
+              <li><a href="#" onclick="showSection('pest-section'); return false;">Pest and disease identification and
+                  management</a></li>
+              <li><a href="#" onclick="showSection('water-section'); return false;">Water management and irrigation
+                  techniques</a></li>
+              <li><a href="#" onclick="showSection('sustainable-section'); return false;">Sustainable farming
+                  practices</a></li>
+            </ul>
+            <a href="#contact-us" class="btn" style="margin-top: 1rem;">Get Expert Advice</a>
+          </div>
+          <div class="modal-details">
+            <div id="crop-section" class="advice-section" style="display: none;">
+              <h4>Crop Selection and Rotation Planning</h4>
+              <p>Our experts help you select the right crops and develop customized rotation plans.</p>
+              <button onclick="hideSection('crop-section')" class="back-button">Back to List</button>
+            </div>
+            <!-- Add other sections as needed -->
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Marketplace Modal -->
+    <div id="marketplaceModal" class="modal-section">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3>Marketplace</h3>
+          <button class="close-button" onclick="closeModal('marketplace')">×</button>
+        </div>
+        <div class="modal-body">
+          <div class="modal-image">
+            <img src="images/market.jpg" alt="Marketplace">
+          </div>
+          <div class="modal-text">
+            <h4>Connect With Markets</h4>
+            <p>Our platform connects farmers directly with buyers and suppliers for fair prices.</p>
+            <form>
+              <div class="form-group">
+                <label for="county">County *</label>
+                <select id="county" name="county" required>
+                  <option value="">Select County</option>
+                  <option value="Nairobi">Nairobi</option>
+                  <option value="Nakuru">Nakuru</option>
+                  <!-- Add more options as needed -->
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="product">Product *</label>
+                <input type="text" id="product" name="product" required>
+              </div>
+              <div class="form-group">
+                <label for="quantity">Quantity *</label>
+                <input type="number" id="quantity" name="quantity" required>
+              </div>
+              <button type="submit" class="btn btn-primary">Connect Markets</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Weather Section -->
+  <section id="weather">
+    <h2 class="heading">Weather <span>Updates</span></h2>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 mx-auto">
+          <div class="input-group mb-3">
+            <input type="text" id="locationInput" class="form-control" placeholder="Enter location"
+              aria-label="Enter location">
+            <button class="btn btn-primary" id="weatherBtn" type="button">Get Weather</button>
+          </div>
+          <div id="weatherResults"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Knowledge Base Section -->
+  <section id="knowledge">
+    <h2 class="heading">Our <span>Knowledge Base</span></h2>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4">
+          <div class="knowledge-card">
+            <img src="images/vet.ad.jpg" alt="Crop cultivation guide" class="knowledge-img">
+            <i class="fas fa-book"></i>
+            <h3>Agriculture Guides</h3>
+            <p>Detailed guides on crop cultivation, soil management, pest control, and sustainable farming practices.
+            </p>
+            <a href="#" onclick="openModal('agricultureguides')" class="btn btn-primary">Access Guides</a>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="knowledge-card">
+            <img src="images/about.jpg" alt="Livestock health resources" class="knowledge-img">
+            <i class="fas fa-first-aid"></i>
+            <h3>Veterinary Care Resources</h3>
+            <p>Comprehensive resources for livestock health, disease prevention, and treatment options.</p>
+            <a href="#" onclick="openModal('veterinaryresources')" class="btn btn-primary">Learn More</a>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="knowledge-card">
+            <img src="images/about.jpg" alt="Livestock health resources" class="knowledge-img">
+            <i class="fas fa-lightbulb"></i>
+            <h3>Best Practices</h3>
+            <p>Expert tips and best practices for maximizing yield, improving efficiency, and reducing costs.</p>
+            <a href="#" onclick="openModal('bestpractices')" class="btn btn-primary">Explore Tips</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal for Agriculture Guides -->
+    <div id="agricultureguidesModal" class="modal-section">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3>Agriculture Advice</h3>
+          <button class="close-button" onclick="closeModal('agricultureguides')">×</button>
+        </div>
+        <div class="modal-body">
+          <div class="modal-image">
+            <img src="images/agriculture.jpg" alt="Agriculture Advice">
+          </div>
+          <div class="modal-text">
+            <h4>Good Agricultural Practices</h4>
+            <p>Our platform provides comprehensive guides on good agricultural practices to help farmers improve their
+              yield and sustainability.</p>
+            <form>
+              <div class="form-group">
+                <label for="crop">Crop *</label>
+                <select id="crop" name="crop" required>
+                  <option value="">Select Crop</option>
+                  <option value="Maize">Maize</option>
+                  <option value="Wheat">Wheat</option>
+                  <!-- Add more options as needed -->
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="practice">Practice *</label>
+                <input type="text" id="practice" name="practice" required>
+              </div>
+              <button type="submit" class="btn btn-primary">Get Advice</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal for Veterinary Resources -->
+    <div id="veterinaryresourcesModal" class="modal-section">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3>Veterinary Care Resources</h3>
+          <button class="close-button" onclick="closeModal('veterinaryresources')">×</button>
+        </div>
+        <div class="modal-body">
+          <div class="modal-image">
+            <img src="images/vetcare.jpg" alt="Veterinary Care Resources">
+          </div>
+          <div class="modal-text">
+            <h4>Comprehensive Resources</h4>
+            <p>Comprehensive resources for livestock health, disease prevention, and treatment options.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal for Best Practices -->
+    <div id="bestpracticesModal" class="modal-section">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3>Best Practices</h3>
+          <button class="close-button" onclick="closeModal('bestpractices')">×</button>
+        </div>
+        <div class="modal-body">
+          <div class="modal-image">
+            <img src="images/bestpractices.jpg" alt="Best Practices">
+          </div>
+          <div class="modal-text">
+            <h4>Expert Tips</h4>
+            <p>Expert tips and best practices for maximizing yield, improving efficiency, and reducing costs.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Customer Care Section -->
+  <section id="customer">
+    <h2 class="heading">Our <span>Customer Care</span></h2>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4">
+          <div class="care-card">
+            <img src="images/about.jpg" alt="Livestock health resources" class="knowledge-img">
+            <i class="fas fa-headset"></i>
+            <h3>Contact Us</h3>
+            <p>Get in touch with our dedicated support team for any inquiries or assistance.</p>
+            <a href="#" onclick="openModal('contactus')" class="btn btn-primary">Contact Now</a>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="care-card">
+            <img src="images/market.jpg" alt="Livestock health resources" class="knowledge-img">
+            <i class="fas fa-comments"></i>
+            <h3>Feedback</h3>
+            <p>Share your thoughts and help us improve our services by providing valuable feedback.</p>
+            <a href="#" onclick="openModal('feedback')" class="btn btn-primary">Submit Feedback</a>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="care-card">
+            <img src="images/mission.jpg" alt="Livestock health resources" class="knowledge-img">
+            <i class="fas fa-info-circle"></i>
+            <h3>Frequently Asked Questions</h3>
+            <p>Find answers to common questions about our services and offerings.</p>
+            <a href="#" onclick="openModal('faq')" class="btn btn-primary">View FAQs</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal for Contact Us -->
+    <div id="contactusModal" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="closeModal('contactus')">×</span>
+        <h2>Contact Us</h2>
+        <p>Get in touch with our dedicated support team for any inquiries or assistance.</p>
+      </div>
+    </div>
+
+    <!-- Modal for Feedback -->
+    <div id="feedbackModal" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="closeModal('feedback')">×</span>
+        <h2>Feedback</h2>
+        <p>Share your thoughts and help us improve our services by providing valuable feedback.</p>
+      </div>
+    </div>
+
+    <!-- Modal for FAQ -->
+    <div id="faqModal" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="closeModal('faq')">×</span>
+        <h2>Frequently Asked Questions</h2>
+        <p>Find answers to common questions about our services and offerings.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer Section -->
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-3">
+          <h4>Farm Nest</h4>
+          <p>Empowering farmers with modern solutions.</p>
+        </div>
+        <div class="col-md-3">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#aboutus">About Us</a></li>
+            <li><a href="#services">Services</a></li>
+          </ul>
+        </div>
+        <div class="col-md-3">
+          <h4>Contact Us</h4>
+          <p>Email: info@farmnest.com</p>
+          <p>Phone: +254 700 000 000</p>
+        </div>
+        <div class="col-md-3">
+          <h4>Follow Us</h4>
+          <div class="social-links">
+            <a href="#" class="facebook"><i class="fab fa-facebook"></i></a>
+            <a href="#" class="twitter"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="instagram"><i class="fab fa-instagram"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="copyright text-center">
+        <p>&copy; 2024 Farm Nest. All Rights Reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Modals (Additional modals can be added similarly) -->
+  <div class="modal fade" id="visionModal" tabindex="-1">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Our Vision</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+          <p>Detailed vision and mission description goes here.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- JavaScript Libraries -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="nav.js"></script>
+</body>
+
+</html>

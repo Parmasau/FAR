@@ -1,0 +1,500 @@
+/* Global Styles */
+:root {
+  --primary-color: #4caf50; /* Green for farming theme */
+  --secondary-color: #81c784; /* Lighter green */
+  --text-color: #333; /* Dark gray for readability */
+  --background-color: #000000; /* Black background */
+}
+
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Arial", sans-serif;
+  line-height: 1.6;
+  color: var(--text-color);
+  background-color: #000000; /* Setting background color to black directly */
+}
+
+/* Header Styles */
+header {
+  position: relative;
+  width: 100%;
+}
+
+.logo {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  z-index: 10;
+  color: white;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+nav {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 10;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+nav ul li a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+  transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+  color: var(--secondary-color);
+}
+
+/* Carousel Styling */
+.carousel-inner img {
+  height: 500px; /* Increased height for impact */
+  object-fit: cover;
+}
+
+.carousel-caption {
+  background: rgba(0, 0, 0, 0.6);
+  padding: 15px;
+  border-radius: 5px;
+  bottom: 20%;
+}
+
+/* General Section Styling */
+section {
+  padding: 60px 0;
+  text-align: center;
+}
+
+.heading {
+  font-size: 36px;
+  font-weight: bold;
+  margin-bottom: 40px;
+  position: relative;
+}
+
+.heading span {
+  color: var(--primary-color);
+}
+
+/* Container Styling */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+/* Card Styling (Unified for all cards) */
+.card,
+.service-card,
+.knowledge-card,
+.care-card {
+  background: #fff;
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  height: 100%; /* Ensure equal height in rows */
+}
+
+.card:hover,
+.service-card:hover,
+.knowledge-card:hover,
+.care-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+.card i,
+.service-card i,
+.knowledge-card i,
+.care-card i {
+  font-size: 48px;
+  color: var(--primary-color);
+  margin-bottom: 15px;
+}
+
+.card h3,
+.service-card h3,
+.knowledge-card h3,
+.care-card h3 {
+  font-size: 22px;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+.card p,
+.service-card p,
+.knowledge-card p,
+.care-card p {
+  font-size: 16px;
+  color: #555;
+}
+
+/* Image Styling */
+.service-img,
+.knowledge-img,
+.care-img,
+.card-img-top,
+.modal-img {
+  width: 100%;
+  max-height: 200px; /* Slightly larger for better visuals */
+  object-fit: cover;
+  margin: 10px 0;
+  border-radius: 5px;
+}
+
+.weather-img {
+  width: 50%;
+  max-height: 100px;
+  object-fit: contain;
+  margin: 10px auto;
+  display: block;
+}
+
+/* Button Styling */
+.btn-primary,
+.btn-outline-primary {
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+}
+
+.btn-primary {
+  background-color: var(--primary-color);
+  border: none;
+}
+
+.btn-primary:hover {
+  background-color: #388e3c; /* Darker green */
+}
+
+.btn-outline-primary {
+  border-color: var(--primary-color);
+  color: var(--primary-color);
+}
+
+.btn-outline-primary:hover {
+  background-color: var(--primary-color);
+  color: #fff;
+}
+
+/* Weather Widget */
+.weather-widget {
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Footer Styles */
+footer {
+  background-color: var(--primary-color);
+  color: white;
+  padding: 3rem 0;
+}
+
+footer h4 {
+  margin-bottom: 1rem;
+}
+
+footer ul {
+  list-style: none;
+  padding: 0;
+}
+
+footer ul li a {
+  color: white;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+footer ul li a:hover {
+  color: var(--secondary-color);
+}
+
+.social-links a {
+  color: white;
+  font-size: 1.5rem;
+  margin-right: 1rem;
+  transition: color 0.3s ease;
+}
+
+social-links a:hover {
+  color: var(--secondary-color);
+}
+
+.copyright {
+  margin-top: 2rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  text-align: center;
+}
+
+/* Modal Styles */
+.modal-section {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 0;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 100%;
+  height: 100%;
+  border-radius: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 10px;
+}
+
+.modal-header h3 {
+  margin: 0;
+}
+
+.close-button {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.modal-body {
+  flex: 1;
+  overflow-y: auto;
+  padding: 20px 0;
+}
+
+.modal-image img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+.modal-text {
+  margin-top: 20px;
+}
+
+.modal-text h4 {
+  margin-bottom: 10px;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.form-group select,
+.form-group input {
+  width: 100%;
+  padding: 8px;
+  box-sizing: border-box;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.btn-primary {
+  background-color: #007bff;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin-top: 10px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.btn-primary:hover {
+  background-color: #0056b3;
+}
+
+.close-button {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.close-button:hover {
+  color: #000;
+}
+
+.modal-image img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  margin-bottom: 15px;
+}
+
+.modal-text h4 {
+  margin-top: 1rem;
+  color: var(--primary-color);
+}
+
+.modal-text ul {
+  list-style-type: disc;
+  padding-left: 20px;
+}
+
+/* Form Styles */
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+/* Weather Section */
+#weather {
+  padding: 50px 0;
+  background-color: #f9f9f9;
+}
+
+#weather .heading {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+#weather .input-group {
+  margin-bottom: 20px;
+}
+
+#weatherResults .alert {
+  margin-top: 20px;
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+  .col-md-4,
+  .col-md-6 {
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
+
+  .carousel-inner img {
+    height: 400px;
+  }
+
+  nav {
+    top: 10px;
+    right: 10px;
+  }
+
+  nav ul {
+    gap: 15px;
+  }
+}
+
+@media (max-width: 768px) {
+  nav {
+    position: static;
+    text-align: center;
+    padding: 10px 0;
+    background: rgba(0, 0, 0, 0.8);
+    width: 100%;
+  }
+
+  nav ul {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .logo {
+    position: static;
+    padding: 10px;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.8);
+  }
+
+  .carousel-caption {
+    bottom: 10%;
+    font-size: 14px;
+  }
+
+  .heading {
+    font-size: 30px;
+  }
+}
+
+@media (max-width: 576px) {
+  .col-md-4,
+  .col-md-6 {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+
+  .carousel-inner img {
+    height: 300px;
+  }
+
+  .carousel-caption h5 {
+    font-size: 16px;
+  }
+
+  .carousel-caption p {
+    font-size: 12px;
+  }
+
+  .service-img,
+  .knowledge-img,
+  .care-img,
+  .card-img-top {
+    max-height: 150px;
+  }
+
+  .weather-img {
+    width: 70%;
+  }
+}
