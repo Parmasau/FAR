@@ -8,25 +8,30 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
- </head>
 </head>
 
 <body>
-  <!-- Header Section with Carousel -->
+  <!-- Header Section with Navbar and Carousel -->
   <header>
-    <div class="logo">
-      <h1>Farm Nest</h1>
+    <div class="header-top">
+      <nav class="navbar-fixed" id="navbar">
+        <div class="navbar-content">
+          <div class="logo">
+            <h1>Farm Nest</h1>
+          </div>
+          <ul>
+            <li><a href="#home" class="nav-link" onclick="setActive('home')">Home</a></li>
+            <li><a href="#aboutus" class="nav-link" onclick="setActive('aboutus')">About Us</a></li>
+            <li><a href="#services" class="nav-link" onclick="setActive('services')">Services</a></li>
+            <li><a href="#weather" class="nav-link" onclick="setActive('weather')">Weather</a></li>
+            <li><a href="#knowledge" class="nav-link" onclick="setActive('knowledge')">Knowledge Base</a></li>
+            <li><a href="#customer" class="nav-link" onclick="setActive('customer')">Customer Care</a></li>
+            <li><a href="#" class="nav-link" id="loginButton" onclick="openModal('login')">Login</a></li>
+            <li><a href="#" class="nav-link" onclick="openModal('signup')">Sign Up</a></li>
+          </ul>
+        </div>
+      </nav>
     </div>
-    <nav>
-      <ul id="navbar">
-        <li><a href="#home" class="nav-link" onclick="setActive('home')">Home</a></li>
-        <li><a href="#aboutus" class="nav-link" onclick="setActive('aboutus')">About Us</a></li>
-        <li><a href="#services" class="nav-link" onclick="setActive('services')">Services</a></li>
-        <li><a href="#weather" class="nav-link" onclick="setActive('weather')">Weather</a></li>
-        <li><a href="#knowledge" class="nav-link" onclick="setActive('knowledge')">Knowledge Base</a></li>
-        <li><a href="#customer" class="nav-link" onclick="setActive('customer')">Customer Care</a></li>
-      </ul>
-    </nav>
 
     <!-- Carousel -->
     <div id="headerCarousel" class="carousel slide" data-bs-ride="carousel">
@@ -42,6 +47,7 @@
           <div class="carousel-caption d-none d-md-block">
             <h5>Welcome to Farm Nest</h5>
             <p>Your trusted partner in modern farming solutions.</p>
+            <button class="btn btn-primary" onclick="redirectToHome()">Home</button>
           </div>
         </div>
         <div class="carousel-item">
@@ -49,6 +55,7 @@
           <div class="carousel-caption d-none d-md-block">
             <h5>Expert Veterinary Care</h5>
             <p>Ensuring the health and productivity of your livestock.</p>
+            <button class="btn btn-primary" onclick="redirectToHome()">Home</button>
           </div>
         </div>
         <div class="carousel-item">
@@ -56,6 +63,7 @@
           <div class="carousel-caption d-none d-md-block">
             <h5>Marketplace Connections</h5>
             <p>Buy inputs and sell produce with ease.</p>
+            <button class="btn btn-primary" onclick="redirectToHome()">Home</button>
           </div>
         </div>
       </div>
@@ -69,7 +77,6 @@
       </button>
     </div>
   </header>
-
   <!-- About Us Section -->
   <section class="about" id="aboutus">
     <h2 class="heading">About <span>Us</span></h2>
@@ -123,7 +130,6 @@
       <div class="modal-content">
         <div class="modal-header">
           <h3>Our Mission</h3>
-          <button class="close-button" onclick="closeModal('mission')">×</button>
         </div>
         <div class="modal-body">
           <div class="modal-image">
@@ -132,15 +138,8 @@
           <div class="modal-text">
             <h4>Driving Agricultural Innovation</h4>
             <p>Our mission is to revolutionize agriculture by providing farmers with cutting-edge technology,
-              sustainable practices, and expert guidance. We aim to bridge the gap between traditional farming and
-              modern solutions, ensuring a brighter future for farming communities.</p>
-            <h4>Key Focus Areas:</h4>
-            <ul>
-              <li>Promoting sustainable farming techniques</li>
-              <li>Empowering farmers with knowledge and tools</li>
-              <li>Enhancing productivity through innovation</li>
-              <li>Building resilient agricultural ecosystems</li>
-            </ul>
+              sustainable practices, and expert guidance.</p>
+            <button class="btn btn-primary" onclick="redirectToHome()">Home</button>
           </div>
         </div>
       </div>
@@ -151,7 +150,6 @@
       <div class="modal-content">
         <div class="modal-header">
           <h3>Our Team</h3>
-          <button class="close-button" onclick="closeModal('team')">×</button>
         </div>
         <div class="modal-body">
           <div class="modal-image">
@@ -161,12 +159,7 @@
             <h4>Meet Our Experts</h4>
             <p>Our team consists of passionate professionals dedicated to supporting farmers and driving positive change
               in the agricultural sector.</p>
-            <h4>Key Team Members:</h4>
-            <ul>
-              <li><strong>Dr. Sarah Kamau</strong> - Chief Veterinary Officer</li>
-              <li><strong>James Omondi</strong> - Head of Agricultural Advisory</li>
-              <li><strong>Grace Muteti</strong> - Marketplace Director</li>
-            </ul>
+            <button class="btn btn-primary" onclick="redirectToHome()">Home</button>
           </div>
         </div>
       </div>
@@ -177,7 +170,6 @@
       <div class="modal-content">
         <div class="modal-header">
           <h3>Our Values</h3>
-          <button class="close-button" onclick="closeModal('values')">×</button>
         </div>
         <div class="modal-body">
           <div class="modal-image">
@@ -192,6 +184,7 @@
               <li><strong>Sustainability:</strong> Protecting the environment and promoting sustainable farming methods.
               </li>
             </ul>
+            <button class="btn btn-primary" onclick="redirectToHome()">Home</button>
           </div>
         </div>
       </div>
@@ -250,7 +243,6 @@
       <div class="modal-content">
         <div class="modal-header">
           <h3>Veterinary Care</h3>
-          <button onclick="openModal('veterinarycare')" class="btn">Learn More</button>
         </div>
         <div class="modal-body">
           <div class="modal-image">
@@ -258,18 +250,8 @@
           </div>
           <div class="modal-text">
             <h4>Expert Veterinary Services</h4>
-            <p>We provide professional veterinary care to ensure your livestock remains healthy and productive. Our team
-              offers both virtual consultations and on-site visits.</p>
-            <h4>Our veterinary services include:</h4>
-            <ul>
-              <li>Routine health check-ups and preventive care</li>
-              <li>Vaccination programs tailored to your livestock</li>
-              <li>Disease diagnosis and treatment plans</li>
-              <li>Emergency care for critical situations</li>
-              <li>Nutritional advice for optimal animal health</li>
-              <li>Reproductive health management</li>
-            </ul>
-            <a href="#contact-us" class="btn" style="margin-top: 1rem;">Schedule a Consultation</a>
+            <p>We provide professional veterinary care to ensure your livestock remains healthy and productive.</p>
+            <button class="btn btn-primary" onclick="redirectToHome()">Home</button>
           </div>
         </div>
       </div>
@@ -283,29 +265,29 @@
           <button class="close-button" onclick="closeModal('agriculture')">×</button>
         </div>
         <div class="modal-body">
-          <div class="modal-list">
-            <h4>We provide expert agricultural advice on:</h4>
-            <ul>
-              <li><a href="#" onclick="showSection('crop-section'); return false;">Crop selection and rotation
-                  planning</a></li>
-              <li><a href="#" onclick="showSection('soil-section'); return false;">Soil health assessment and
-                  improvement strategies</a></li>
-              <li><a href="#" onclick="showSection('pest-section'); return false;">Pest and disease identification and
-                  management</a></li>
-              <li><a href="#" onclick="showSection('water-section'); return false;">Water management and irrigation
-                  techniques</a></li>
-              <li><a href="#" onclick="showSection('sustainable-section'); return false;">Sustainable farming
-                  practices</a></li>
-            </ul>
-            <a href="#contact-us" class="btn" style="margin-top: 1rem;">Get Expert Advice</a>
+          <div class="modal-image">
+            <img src="images/agriculture.jpg" alt="Agriculture Advice">
           </div>
-          <div class="modal-details">
-            <div id="crop-section" class="advice-section" style="display: none;">
-              <h4>Crop Selection and Rotation Planning</h4>
-              <p>Our experts help you select the right crops and develop customized rotation plans.</p>
-              <button onclick="hideSection('crop-section')" class="back-button">Back to List</button>
-            </div>
-            <!-- Add other sections as needed -->
+          <div class="modal-text">
+            <h4>Good Agricultural Practices</h4>
+            <p>Our platform provides comprehensive guides on good agricultural practices to help farmers improve their
+              yield and sustainability.</p>
+            <form>
+              <div class="form-group">
+                <label for="crop">Crop *</label>
+                <select id="crop" name="crop" required>
+                  <option value="">Select Crop</option>
+                  <option value="Maize">Maize</option>
+                  <option value="Wheat">Wheat</option>
+                  <!-- Add more options as needed -->
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="practice">Practice *</label>
+                <input type="text" id="practice" name="practice" required>
+              </div>
+              <button type="submit" class="btn btn-primary">Get Advice</button>
+            </form>
           </div>
         </div>
       </div>
@@ -316,7 +298,6 @@
       <div class="modal-content">
         <div class="modal-header">
           <h3>Marketplace</h3>
-          <button class="close-button" onclick="closeModal('marketplace')">×</button>
         </div>
         <div class="modal-body">
           <div class="modal-image">
@@ -325,26 +306,7 @@
           <div class="modal-text">
             <h4>Connect With Markets</h4>
             <p>Our platform connects farmers directly with buyers and suppliers for fair prices.</p>
-            <form>
-              <div class="form-group">
-                <label for="county">County *</label>
-                <select id="county" name="county" required>
-                  <option value="">Select County</option>
-                  <option value="Nairobi">Nairobi</option>
-                  <option value="Nakuru">Nakuru</option>
-                  <!-- Add more options as needed -->
-                </select>
-              </div>
-              <div class="form-group">
-                <label for="product">Product *</label>
-                <input type="text" id="product" name="product" required>
-              </div>
-              <div class="form-group">
-                <label for="quantity">Quantity *</label>
-                <input type="number" id="quantity" name="quantity" required>
-              </div>
-              <button type="submit" class="btn btn-primary">Connect Markets</button>
-            </form>
+            <button class="btn btn-primary" onclick="redirectToHome()">Home</button>
           </div>
         </div>
       </div>
@@ -541,6 +503,69 @@
       </div>
     </div>
   </section>
+
+  <!-- Example of a modal with a cancel button -->
+  <div id="exampleModal" class="modal-section">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3>Example Modal</h3>
+        <button class="close-button" onclick="closeModal('example')">×</button>
+      </div>
+      <div class="modal-body">
+        <!-- Modal content here -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Login Modal -->
+  <div id="loginModal" class="modal-section">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3>Login</h3>
+        <button class="close-button" onclick="closeModal('login')">×</button>
+      </div>
+      <div class="modal-body">
+        <form id="loginForm">
+          <div class="form-group">
+            <label for="loginEmail">Email</label>
+            <input type="email" id="loginEmail" name="email" required>
+          </div>
+          <div class="form-group">
+            <label for="loginPassword">Password</label>
+            <input type="password" id="loginPassword" name="password" required>
+          </div>
+          <button type="submit" class="btn btn-primary">Login</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Sign Up Modal -->
+  <div id="signupModal" class="modal-section">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3>Sign Up</h3>
+        <button class="close-button" onclick="closeModal('signup')">×</button>
+      </div>
+      <div class="modal-body">
+        <form id="signupForm">
+          <div class="form-group">
+            <label for="signupName">Name</label>
+            <input type="text" id="signupName" name="name" required>
+          </div>
+          <div class="form-group">
+            <label for="signupEmail">Email</label>
+            <input type="email" id="signupEmail" name="email" required>
+          </div>
+          <div class="form-group">
+            <label for="signupPassword">Password</label>
+            <input type="password" id="signupPassword" name="password" required>
+          </div>
+          <button type="submit" class="btn btn-primary">Sign Up</button>
+        </form>
+      </div>
+    </div>
+  </div>
 
   <!-- Footer Section -->
   <footer>

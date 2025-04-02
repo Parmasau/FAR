@@ -1,13 +1,49 @@
+document.addEventListener("DOMContentLoaded", function () {
+  const navbar = document.getElementById("navbar");
+  let lastScrollTop = 0;
+
+  window.addEventListener("scroll", function () {
+    let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+    // Hide navbar when scrolling down
+    if (scrollTop > lastScrollTop) {
+      navbar.classList.add("hidden");
+    } else {
+      // Show navbar when scrolling up
+      navbar.classList.remove("hidden");
+    }
+
+    lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; // Prevent negative scroll values
+  });
+
+  // Check login state on page load
+  checkLoginState();
+});
+
 // Function to open modals
 function openModal(modalId) {
   document.getElementById(modalId + "Modal").style.display = "block";
   document.body.style.overflow = "hidden"; // Prevent scrolling when modal is open
+  hideNavbar(); // Hide navbar when modal is opened
 }
 
 // Function to close modals
 function closeModal(modalId) {
   document.getElementById(modalId + "Modal").style.display = "none";
   document.body.style.overflow = "auto"; // Re-enable scrolling
+  showNavbar(); // Show navbar when modal is closed
+}
+
+// Function to show the navbar
+function showNavbar() {
+  const navbar = document.getElementById("navbar");
+  navbar.classList.remove("hidden");
+}
+
+// Function to hide the navbar
+function hideNavbar() {
+  const navbar = document.getElementById("navbar");
+  navbar.classList.add("hidden");
 }
 
 // Function to show specific sections in the agriculture advice modal
@@ -52,6 +88,7 @@ window.onclick = function (event) {
     if (event.target == modals[i]) {
       modals[i].style.display = "none";
       document.body.style.overflow = "auto"; // Re-enable scrolling
+      showNavbar(); // Show navbar when modal is closed
     }
   }
 };
@@ -105,3 +142,55 @@ function setActive(sectionId) {
     }
   });
 }
+
+// Function to redirect to the home section and set the "Home" button as active
+function redirectToHome() {
+  setActive("home"); // Set the "Home" link as active
+  document.getElementById("home").scrollIntoView({ behavior: "smooth" }); // Scroll to the home section
+  closeAllModals(); // Close any open modals
+}
+
+// Function to close all modals
+function closeAllModals() {
+  const modals = document.querySelectorAll(".modal-section");
+  modals.forEach((modal) => {
+    modal.style.display = "none";
+  });
+  document.body.style.overflow = "auto"; // Re-enable scrolling
+}
+
+// Add event listener to cancel buttons
+document.addEventListener("DOMContentLoaded", function () {
+  const cancelButtons = document.querySelectorAll(".close-button");
+  cancelButtons.forEach((button) => {
+    button.addEventListener("click", function () {
+      button.classList.add("active");
+      setTimeout(() => {
+        button.classList.remove("active");
+      }, 300); // Remove active class after 300ms
+      closeModal(button.getAttribute("onclick").split("'")[1]);
+    });
+  });
+});
+
+// Function to check login state and hide login button if logged in
+function checkLoginState() {
+  const loginButton = document.getElementById("loginButton");
+  const isLoggedIn = localStorage.getItem("isLoggedIn");
+
+  if (isLoggedIn === "true") {
+    loginButton.style.display = "none";
+  }
+}
+
+// Function to handle login form submission
+document
+  .getElementById("loginForm")
+  .addEventListener("submit", function (event) {
+    event.preventDefault();
+    // Perform login logic here (e.g., validate credentials, make API call)
+    // For demonstration, we'll assume login is successful
+    localStorage.setItem("isLoggedIn", "true");
+    closeModal("login");
+    checkLoginState();
+  });

@@ -37,40 +37,256 @@ header {
 
 nav {
   position: fixed;
-  top: 20px;
-  right: 20px;
-  z-index: 10;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+  padding: 10px 0;
+  transition: top 0.3s;
 }
 
-nav ul {
+/* Navbar Styles */
+#navbar {
+  text-align: center;
+  align-items: center;
+}
+
+#navbar ul {
   list-style: none;
   display: flex;
-  gap: 20px;
+  justify-content: center;
+  gap: 40px;
 }
 
-nav ul li a {
+#navbar ul li {
+  display: inline;
+}
+
+#navbar ul li a {
   color: white;
   text-decoration: none;
+  font-size: 18px;
   font-weight: bold;
-  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+  transition: background-color 0.3s ease;
+}
+
+#navbar ul li a:hover {
+  text-decoration: underline;
+}
+
+#navbar.hidden {
+  top: -60px; /* Adjust this value based on your navbar height */
+}
+
+/* New Navbar Styles */
+header nav ul {
+  list-style: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+
+header nav ul li {
+  margin-left: 20px;
+}
+
+header nav ul li a {
+  color: blueviolet;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+
+header nav ul li a:hover {
+  color: #d4ffd4; /* Light green hover effect */
+}
+
+header nav ul li a.active {
+  color: #d4ffd4;
+  text-decoration: underline;
+  font-weight: bold;
+}
+
+/* Header top container for logo and navbar */
+.header-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #ffffff54; /* Semi-transparent background */
+  position: absolute; /* Absolute positioning to overlay on carousel */
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000; /* Ensures navbar stays above other content */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Optional: adds a shadow for depth */
+}
+
+/* Logo styling */
+.logo h1 {
+  margin: 0;
+  font-size: 24px;
+  color: #333; /* Adjust color as needed */
+}
+
+/* Navbar styling */
+.navbar-fixed {
+  position: fixed;
+  top: 0;
+  right: 0; /* Align the navbar to the right */
+  background-color: #4caf50; /* Green background color */
+  z-index: 1000;
+  padding: 5px 10px; /* Smaller padding for a compact navbar */
+  display: flex;
+  justify-content: center; /* Align content to the right */
+  align-items: center; /* Center items vertically */
+  border-radius: 5px; /* Optional: rounded corners */
+  width: auto; /* Adjust width to fit content */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Optional: shadow for depth */
+}
+
+.navbar-fixed .logo {
+  margin-right: 20px; /* Add spacing between the logo and the menu */
+}
+
+.navbar-fixed .logo h1 {
+  font-size: 18px; /* Smaller font size for the logo */
+  margin: 0;
+  color: white; /* Logo text color */
+}
+
+.navbar-fixed ul {
+  list-style: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+  gap: 15px; /* Add spacing between menu items */
+}
+
+.navbar-fixed ul li {
+  margin: 0;
+}
+
+.navbar-fixed ul li a {
+  text-decoration: none;
+  color: white; /* White text color */
+  font-size: 14px; /* Smaller font size for menu items */
+  font-weight: bold; /* Bold text */
+  padding: 5px 10px; /* Adjust padding for smaller size */
   transition: color 0.3s ease;
 }
 
-nav ul li a:hover {
-  color: var(--secondary-color);
+.navbar-fixed ul li a:hover {
+  color: #d4ffd4; /* Light green hover effect */
 }
 
-/* Carousel Styling */
+.navbar-fixed.hidden {
+  top: -50px; /* Adjust this value based on the new navbar height */
+}
+
+.navbar-fixed.hidden {
+  top: -100px; /* Adjust this value based on your navbar height */
+}
+
+.navbar-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo h1 {
+  margin: 0;
+  padding: 10px;
+}
+
+ul {
+  list-style: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+
+ul li {
+  margin: 0 10px;
+}
+
+ul li a {
+  text-decoration: none;
+  color: #000;
+  padding: 10px;
+  transition: color 0.3s;
+}
+
+ul li a:hover {
+  color: #007bff;
+}
+
+/* Logo inside navbar */
+.navbar-fixed .logo h1 {
+  margin: 0;
+  font-size: 24px;
+  color: #333; /* Adjust color */
+}
+
+/* Navbar list */
+.navbar-fixed ul {
+  list-style: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar-fixed ul li {
+  margin-left: 20px;
+}
+
+.navbar-fixed ul li a {
+  text-decoration: none;
+  color: #333; /* Adjust color */
+  font-weight: 500;
+  padding: 8px 15px;
+  transition: color 0.3s ease;
+}
+
+.navbar-fixed ul li a:hover {
+  color: #007bff; /* Bootstrap primary color */
+}
+
+/* Hide navbar when scrolling down */
+.navbar-hidden {
+  top: -70px; /* Adjust based on navbar height */
+}
+
+/* Carousel adjustment */
+#headerCarousel {
+  margin-top: 70px; /* Matches navbar height */
+}
+
 .carousel-inner img {
-  height: 500px; /* Increased height for impact */
+  object-fit: cover;
+  height: 500px; /* Adjust as needed */
+}
+
+/* Carousel Styles */
+.carousel-inner img {
+  height: 500px; /* Adjust height as needed */
   object-fit: cover;
 }
 
 .carousel-caption {
-  background: rgba(0, 0, 0, 0.6);
+  background: rgba(0, 0, 0, 0.6); /* Semi-transparent background */
   padding: 15px;
   border-radius: 5px;
   bottom: 20%;
+}
+
+.carousel-caption h5 {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.carousel-caption p {
+  font-size: 1.2rem;
 }
 
 /* General Section Styling */
@@ -217,6 +433,14 @@ footer h4 {
 footer ul {
   list-style: none;
   padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column; /* Align links vertically */
+  gap: 10px; /* Add spacing between links */
+}
+
+footer ul li {
+  margin: 0;
 }
 
 footer ul li a {
@@ -226,7 +450,7 @@ footer ul li a {
 }
 
 footer ul li a:hover {
-  color: var(--secondary-color);
+  color: var(--secondary-color); /* Change color on hover */
 }
 
 .social-links a {
@@ -257,58 +481,84 @@ social-links a:hover {
   width: 100%;
   height: 100%;
   overflow: auto;
-  background-color: rgba(0, 0, 0, 0.4);
+  background-color: rgba(
+    0,
+    0,
+    0,
+    0.9
+  ); /* Darker background for full coverage */
 }
 
 .modal-content {
   background-color: #fefefe;
-  margin: 0;
+  margin: 0; /* Remove margin for full coverage */
   padding: 20px;
-  border: 1px solid #888;
+  border: none; /* Remove border */
   width: 100%;
-  height: 100%;
-  border-radius: 0;
+  height: 100%; /* Full height */
+  border-radius: 0; /* Remove border radius */
+  overflow-y: auto; /* Enable scrolling */
   display: flex;
+  align-items: center;
+  justify-content: center;
   flex-direction: column;
+  text-align: center;
+  transition: transform 0.5s ease;
 }
 
 .modal-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 1px solid #ddd;
+  width: 100%;
   padding-bottom: 10px;
+  border-bottom: 1px solid #ddd;
 }
 
 .modal-header h3 {
   margin: 0;
+  font-size: 2rem;
+  color: var(--text-color);
 }
 
+/* Close Button Styles */
 .close-button {
   background: none;
   border: none;
   font-size: 1.5rem;
   cursor: pointer;
+  color: var(--text-color);
+  transition: color 0.3s;
+}
+
+.close-button:hover {
+  color: red; /* Change color when hovered */
+}
+
+.close-button.active {
+  color: red; /* Change color when active */
 }
 
 .modal-body {
-  flex: 1;
-  overflow-y: auto;
   padding: 20px 0;
+  width: 100%;
 }
 
 .modal-image img {
   width: 100%;
   height: auto;
   border-radius: 10px;
-}
-
-.modal-text {
-  margin-top: 20px;
+  margin-bottom: 15px;
 }
 
 .modal-text h4 {
-  margin-bottom: 10px;
+  margin-top: 1rem;
+  color: var(--primary-color);
+}
+
+.modal-text ul {
+  list-style-type: disc;
+  padding-left: 20px;
 }
 
 .form-group {
@@ -318,19 +568,20 @@ social-links a:hover {
 .form-group label {
   display: block;
   margin-bottom: 5px;
+  font-weight: bold;
 }
 
+.form-group input,
 .form-group select,
-.form-group input {
+.form-group textarea {
   width: 100%;
   padding: 8px;
-  box-sizing: border-box;
   border: 1px solid #ddd;
-  border-radius: 5px;
+  border-radius: 4px;
 }
 
 .btn-primary {
-  background-color: #007bff;
+  background-color: var(--primary-color);
   border: none;
   color: white;
   padding: 10px 20px;
@@ -344,7 +595,7 @@ social-links a:hover {
 }
 
 .btn-primary:hover {
-  background-color: #0056b3;
+  background-color: #388e3c; /* Darker green */
 }
 
 .close-button {
@@ -496,5 +747,17 @@ social-links a:hover {
 
   .weather-img {
     width: 70%;
+  }
+}
+
+@media (max-width: 1024px) {
+  .modal-content {
+    width: 90%;
+  }
+}
+
+@media (max-width: 768px) {
+  .modal-content {
+    width: 95%;
   }
 }
