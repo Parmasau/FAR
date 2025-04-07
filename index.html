@@ -13,25 +13,19 @@
 <body>
   <!-- Header Section with Navbar and Carousel -->
   <header>
-    <div class="header-top">
-      <nav class="navbar-fixed" id="navbar">
-        <div class="navbar-content">
-          <div class="logo">
-            <h1>Farm Nest</h1>
-          </div>
-          <ul>
-            <li><a href="#home" class="nav-link" onclick="setActive('home')">Home</a></li>
-            <li><a href="#aboutus" class="nav-link" onclick="setActive('aboutus')">About Us</a></li>
-            <li><a href="#services" class="nav-link" onclick="setActive('services')">Services</a></li>
-            <li><a href="#weather" class="nav-link" onclick="setActive('weather')">Weather</a></li>
-            <li><a href="#knowledge" class="nav-link" onclick="setActive('knowledge')">Knowledge Base</a></li>
-            <li><a href="#customer" class="nav-link" onclick="setActive('customer')">Customer Care</a></li>
-            <li><a href="#" class="nav-link" id="loginButton" onclick="openModal('login')">Login</a></li>
-            <li><a href="#" class="nav-link" onclick="openModal('signup')">Sign Up</a></li>
-          </ul>
-        </div>
-      </nav>
-    </div>
+    <!-- Navbar -->
+    <nav class="navbar">
+      <div class="navbar-container">
+        <a href="#home" class="navbar-link">Home</a>
+        <a href="#aboutus" class="navbar-link">About Us</a>
+        <a href="#services" class="navbar-link">Services</a>
+        <a href="#weather" class="navbar-link">Weather</a>
+        <a href="#knowledge" class="navbar-link">Knowledge Base</a>
+        <a href="#login" class="navbar-link" onclick="openModal('login')">Login</a><a href="#customer"
+          class="navbar-link">Customer Care</a>
+        <a href="#signup" class="navbar-link" onclick="openModal('signup')">Sign Up</a>
+      </div>
+    </nav>
 
     <!-- Carousel -->
     <div id="headerCarousel" class="carousel slide" data-bs-ride="carousel">
@@ -43,11 +37,10 @@
       </div>
       <div class="carousel-inner">
         <div class="carousel-item active">
-          <img src="images/background.png" class="d-block w-100" alt="Farm Landscape">
+          <img src="images/background.png" class="d-block w-100" alt="Farm Landscape" loading="lazy">
           <div class="carousel-caption d-none d-md-block">
             <h5>Welcome to Farm Nest</h5>
             <p>Your trusted partner in modern farming solutions.</p>
-            <button class="btn btn-primary" onclick="redirectToHome()">Home</button>
           </div>
         </div>
         <div class="carousel-item">
@@ -55,7 +48,6 @@
           <div class="carousel-caption d-none d-md-block">
             <h5>Expert Veterinary Care</h5>
             <p>Ensuring the health and productivity of your livestock.</p>
-            <button class="btn btn-primary" onclick="redirectToHome()">Home</button>
           </div>
         </div>
         <div class="carousel-item">
@@ -63,7 +55,6 @@
           <div class="carousel-caption d-none d-md-block">
             <h5>Marketplace Connections</h5>
             <p>Buy inputs and sell produce with ease.</p>
-            <button class="btn btn-primary" onclick="redirectToHome()">Home</button>
           </div>
         </div>
       </div>
@@ -77,6 +68,7 @@
       </button>
     </div>
   </header>
+
   <!-- About Us Section -->
   <section class="about" id="aboutus">
     <h2 class="heading">About <span>Us</span></h2>
@@ -92,7 +84,9 @@
               <h3 class="card-title">Our Mission</h3>
               <p class="card-text">We are committed to revolutionizing agriculture through innovative solutions and
                 sustainable practices.</p>
-              <button onclick="openModal('mission')" class="btn btn-outline-primary">Learn More</button>
+              <button class="btn btn-primary are-button" onclick="openModal('mission')">
+                Learn More
+              </button>
             </div>
           </div>
         </div>
@@ -105,7 +99,9 @@
               <i class="fa-solid fa-users"></i>
               <h3 class="card-title">Our Team</h3>
               <p class="card-text">A dedicated group of experts passionate about empowering farmers.</p>
-              <button onclick="openModal('team')" class="btn btn-outline-primary">Meet Our Team</button>
+              <button class="btn btn-primary are-button" onclick="openModal('team')">
+                Meet Our Team
+              </button>
             </div>
           </div>
         </div>
@@ -129,18 +125,18 @@
     <div id="missionModal" class="modal-section">
       <div class="modal-content">
         <div class="modal-header">
-          <h3>Our Mission</h3>
+          <button class="close-button" aria-label="Close Modal">×</button>
         </div>
-        <div class="modal-body">
-          <div class="modal-image">
-            <img src="images/mission.jpg" alt="Our Mission">
-          </div>
-          <div class="modal-text">
-            <h4>Driving Agricultural Innovation</h4>
-            <p>Our mission is to revolutionize agriculture by providing farmers with cutting-edge technology,
-              sustainable practices, and expert guidance.</p>
-            <button class="btn btn-primary" onclick="redirectToHome()">Home</button>
-          </div>
+        <div class="modal-image" style="background-image: url('images/about.jpg');">
+          <h3>Our Mission</h3>
+          <button class="btn btn-primary are-button">
+            Learn More
+          </button>
+        </div>
+        <div class="modal-body" style="display: none;">
+          <h4>Driving Agricultural Innovation</h4>
+          <p>Our mission is to revolutionize agriculture by providing farmers with cutting-edge technology,
+            sustainable practices, and expert guidance.</p>
         </div>
       </div>
     </div>
@@ -149,18 +145,18 @@
     <div id="teamModal" class="modal-section">
       <div class="modal-content">
         <div class="modal-header">
-          <h3>Our Team</h3>
+          <button class="close-button" aria-label="Close Modal">×</button>
         </div>
-        <div class="modal-body">
-          <div class="modal-image">
-            <img src="images/team.jpg" alt="Our Team">
-          </div>
-          <div class="modal-text">
-            <h4>Meet Our Experts</h4>
-            <p>Our team consists of passionate professionals dedicated to supporting farmers and driving positive change
-              in the agricultural sector.</p>
-            <button class="btn btn-primary" onclick="redirectToHome()">Home</button>
-          </div>
+        <div class="modal-image" style="background-image: url('images/wallpaper.jpg');">
+          <h3>Our Team</h3>
+          <button class="btn btn-primary are-button">
+            Learn More
+          </button>
+        </div>
+        <div class="modal-body" style="display: none;">
+          <h4>Meet Our Experts</h4>
+          <p>Our team consists of passionate professionals dedicated to supporting farmers and driving positive change
+            in the agricultural sector.</p>
         </div>
       </div>
     </div>
@@ -169,23 +165,23 @@
     <div id="valuesModal" class="modal-section">
       <div class="modal-content">
         <div class="modal-header">
-          <h3>Our Values</h3>
+          <button class="close-button" aria-label="Close Modal">×</button>
         </div>
-        <div class="modal-body">
-          <div class="modal-image">
-            <img src="images/values.jpg" alt="Our Values">
-          </div>
-          <div class="modal-text">
-            <h4>Guided by Core Principles</h4>
-            <p>We are committed to upholding the following values in everything we do:</p>
-            <ul>
-              <li><strong>Transparency:</strong> Open communication and honesty with our farmers and partners.</li>
-              <li><strong>Innovation:</strong> Constantly seeking new ways to improve agricultural practices.</li>
-              <li><strong>Sustainability:</strong> Protecting the environment and promoting sustainable farming methods.
-              </li>
-            </ul>
-            <button class="btn btn-primary" onclick="redirectToHome()">Home</button>
-          </div>
+        <div class="modal-image" style="background-image: url('images/market.jpg');">
+          <h3>Our Values</h3>
+          <button class="btn btn-primary are-button">
+            Explore Values
+          </button>
+        </div>
+        <div class="modal-body" style="display: none;">
+          <h4>Guided by Core Principles</h4>
+          <p>We are committed to upholding the following values in everything we do:</p>
+          <ul>
+            <li><strong>Transparency:</strong> Open communication and honesty with our farmers and partners.</li>
+            <li><strong>Innovation:</strong> Constantly seeking new ways to improve agricultural practices.</li>
+            <li><strong>Sustainability:</strong> Protecting the environment and promoting sustainable farming methods.
+            </li>
+          </ul>
         </div>
       </div>
     </div>
@@ -242,17 +238,17 @@
     <div id="veterinarycareModal" class="modal-section">
       <div class="modal-content">
         <div class="modal-header">
-          <h3>Veterinary Care</h3>
+          <button class="close-button" aria-label="Close Modal">×</button>
         </div>
-        <div class="modal-body">
-          <div class="modal-image">
-            <img src="images/vetcare.jpg" alt="Veterinary Care">
-          </div>
-          <div class="modal-text">
-            <h4>Expert Veterinary Services</h4>
-            <p>We provide professional veterinary care to ensure your livestock remains healthy and productive.</p>
-            <button class="btn btn-primary" onclick="redirectToHome()">Home</button>
-          </div>
+        <div class="modal-image" style="background-image: url('images/vetcare.jpg');">
+          <h3>Veterinary Care</h3>
+          <button class="btn btn-primary are-button">
+            Learn More
+          </button>
+        </div>
+        <div class="modal-body" style="display: none;">
+          <h4>Expert Veterinary Services</h4>
+          <p>We provide professional veterinary care to ensure your livestock remains healthy and productive.</p>
         </div>
       </div>
     </div>
@@ -261,34 +257,18 @@
     <div id="agricultureModal" class="modal-section">
       <div class="modal-content">
         <div class="modal-header">
-          <h3>Agricultural Advice</h3>
-          <button class="close-button" onclick="closeModal('agriculture')">×</button>
+          <button class="close-button" aria-label="Close Modal">×</button>
         </div>
-        <div class="modal-body">
-          <div class="modal-image">
-            <img src="images/agriculture.jpg" alt="Agriculture Advice">
-          </div>
-          <div class="modal-text">
-            <h4>Good Agricultural Practices</h4>
-            <p>Our platform provides comprehensive guides on good agricultural practices to help farmers improve their
-              yield and sustainability.</p>
-            <form>
-              <div class="form-group">
-                <label for="crop">Crop *</label>
-                <select id="crop" name="crop" required>
-                  <option value="">Select Crop</option>
-                  <option value="Maize">Maize</option>
-                  <option value="Wheat">Wheat</option>
-                  <!-- Add more options as needed -->
-                </select>
-              </div>
-              <div class="form-group">
-                <label for="practice">Practice *</label>
-                <input type="text" id="practice" name="practice" required>
-              </div>
-              <button type="submit" class="btn btn-primary">Get Advice</button>
-            </form>
-          </div>
+        <div class="modal-image" style="background-image: url('images/about.jpg');">
+          <h3>Agricultural Advice</h3>
+          <button class="btn btn-primary are-button">
+            Learn More
+          </button>
+        </div>
+        <div class="modal-body" style="display: none;">
+          <h4>Good Agricultural Practices</h4>
+          <p>Our platform provides comprehensive guides on good agricultural practices to help farmers improve their
+            yield and sustainability.</p>
         </div>
       </div>
     </div>
@@ -297,17 +277,17 @@
     <div id="marketplaceModal" class="modal-section">
       <div class="modal-content">
         <div class="modal-header">
-          <h3>Marketplace</h3>
+          <button class="close-button" aria-label="Close Modal">×</button>
         </div>
-        <div class="modal-body">
-          <div class="modal-image">
-            <img src="images/market.jpg" alt="Marketplace">
-          </div>
-          <div class="modal-text">
-            <h4>Connect With Markets</h4>
-            <p>Our platform connects farmers directly with buyers and suppliers for fair prices.</p>
-            <button class="btn btn-primary" onclick="redirectToHome()">Home</button>
-          </div>
+        <div class="modal-image" style="background-image: url('images/market.jpg');">
+          <h3>Marketplace</h3>
+          <button class="btn btn-primary are-button">
+            Explore More
+          </button>
+        </div>
+        <div class="modal-body" style="display: none;">
+          <h4>Connect With Markets</h4>
+          <p>Our platform connects farmers directly with buyers and suppliers for fair prices.</p>
         </div>
       </div>
     </div>
@@ -370,34 +350,18 @@
     <div id="agricultureguidesModal" class="modal-section">
       <div class="modal-content">
         <div class="modal-header">
-          <h3>Agriculture Advice</h3>
-          <button class="close-button" onclick="closeModal('agricultureguides')">×</button>
+          <button class="close-button" aria-label="Close Modal">×</button>
         </div>
-        <div class="modal-body">
-          <div class="modal-image">
-            <img src="images/agriculture.jpg" alt="Agriculture Advice">
-          </div>
-          <div class="modal-text">
-            <h4>Good Agricultural Practices</h4>
-            <p>Our platform provides comprehensive guides on good agricultural practices to help farmers improve their
-              yield and sustainability.</p>
-            <form>
-              <div class="form-group">
-                <label for="crop">Crop *</label>
-                <select id="crop" name="crop" required>
-                  <option value="">Select Crop</option>
-                  <option value="Maize">Maize</option>
-                  <option value="Wheat">Wheat</option>
-                  <!-- Add more options as needed -->
-                </select>
-              </div>
-              <div class="form-group">
-                <label for="practice">Practice *</label>
-                <input type="text" id="practice" name="practice" required>
-              </div>
-              <button type="submit" class="btn btn-primary">Get Advice</button>
-            </form>
-          </div>
+        <div class="modal-image" style="background-image: url('images/about.jpg');">
+          <h3>Agriculture Guides</h3>
+          <button class="btn btn-primary are-button">
+            Access Guides
+          </button>
+        </div>
+        <div class="modal-body" style="display: none;">
+          <h4>Good Agricultural Practices</h4>
+          <p>Our platform provides comprehensive guides on good agricultural practices to help farmers improve their
+            yield and sustainability.</p>
         </div>
       </div>
     </div>
@@ -406,17 +370,17 @@
     <div id="veterinaryresourcesModal" class="modal-section">
       <div class="modal-content">
         <div class="modal-header">
-          <h3>Veterinary Care Resources</h3>
-          <button class="close-button" onclick="closeModal('veterinaryresources')">×</button>
+          <button class="close-button" aria-label="Close Modal">×</button>
         </div>
-        <div class="modal-body">
-          <div class="modal-image">
-            <img src="images/vetcare.jpg" alt="Veterinary Care Resources">
-          </div>
-          <div class="modal-text">
-            <h4>Comprehensive Resources</h4>
-            <p>Comprehensive resources for livestock health, disease prevention, and treatment options.</p>
-          </div>
+        <div class="modal-image" style="background-image: url('images/vetcare.jpg');">
+          <h3>Veterinary Resources</h3>
+          <button class="btn btn-primary are-button">
+            Learn More
+          </button>
+        </div>
+        <div class="modal-body" style="display: none;">
+          <h4>Comprehensive Resources</h4>
+          <p>Comprehensive resources for livestock health, disease prevention, and treatment options.</p>
         </div>
       </div>
     </div>
@@ -425,17 +389,17 @@
     <div id="bestpracticesModal" class="modal-section">
       <div class="modal-content">
         <div class="modal-header">
-          <h3>Best Practices</h3>
-          <button class="close-button" onclick="closeModal('bestpractices')">×</button>
+          <button class="close-button" aria-label="Close Modal">×</button>
         </div>
-        <div class="modal-body">
-          <div class="modal-image">
-            <img src="images/bestpractices.jpg" alt="Best Practices">
-          </div>
-          <div class="modal-text">
-            <h4>Expert Tips</h4>
-            <p>Expert tips and best practices for maximizing yield, improving efficiency, and reducing costs.</p>
-          </div>
+        <div class="modal-image" style="background-image: url('images/about.jpg');">
+          <h3>Best Practices</h3>
+          <button class="btn btn-primary are-button">
+            Explore Tips
+          </button>
+        </div>
+        <div class="modal-body" style="display: none;">
+          <h4>Expert Tips</h4>
+          <p>Expert tips and best practices for maximizing yield, improving efficiency, and reducing costs.</p>
         </div>
       </div>
     </div>
@@ -477,29 +441,59 @@
     </div>
 
     <!-- Modal for Contact Us -->
-    <div id="contactusModal" class="modal">
+    <div id="contactusModal" class="modal-section">
       <div class="modal-content">
-        <span class="close" onclick="closeModal('contactus')">×</span>
-        <h2>Contact Us</h2>
-        <p>Get in touch with our dedicated support team for any inquiries or assistance.</p>
+        <div class="modal-header">
+          <button class="close-button" aria-label="Close Modal">×</button>
+        </div>
+        <div class="modal-image" style="background-image: url('images/about.jpg');">
+          <h3>Contact Us</h3>
+          <button class="btn btn-primary are-button">
+            Get in Touch
+          </button>
+        </div>
+        <div class="modal-body" style="display: none;">
+          <h4>Reach Out to Us</h4>
+          <p>Get in touch with our dedicated support team for any inquiries or assistance.</p>
+        </div>
       </div>
     </div>
 
     <!-- Modal for Feedback -->
-    <div id="feedbackModal" class="modal">
+    <div id="feedbackModal" class="modal-section">
       <div class="modal-content">
-        <span class="close" onclick="closeModal('feedback')">×</span>
-        <h2>Feedback</h2>
-        <p>Share your thoughts and help us improve our services by providing valuable feedback.</p>
+        <div class="modal-header">
+          <button class="close-button" aria-label="Close Modal">×</button>
+        </div>
+        <div class="modal-image" style="background-image: url('images/market.jpg');">
+          <h3>Feedback</h3>
+          <button class="btn btn-primary are-button">
+            Submit Feedback
+          </button>
+        </div>
+        <div class="modal-body" style="display: none;">
+          <h4>We Value Your Feedback</h4>
+          <p>Share your thoughts and help us improve our services by providing valuable feedback.</p>
+        </div>
       </div>
     </div>
 
     <!-- Modal for FAQ -->
-    <div id="faqModal" class="modal">
+    <div id="faqModal" class="modal-section">
       <div class="modal-content">
-        <span class="close" onclick="closeModal('faq')">×</span>
-        <h2>Frequently Asked Questions</h2>
-        <p>Find answers to common questions about our services and offerings.</p>
+        <div class="modal-header">
+          <button class="close-button" aria-label="Close Modal">×</button>
+        </div>
+        <div class="modal-image" style="background-image: url('images/mission.jpg');">
+          <h3>Frequently Asked Questions</h3>
+          <button class="btn btn-primary are-button">
+            View FAQs
+          </button>
+        </div>
+        <div class="modal-body" style="display: none;">
+          <h4>Find Answers</h4>
+          <p>Find answers to common questions about our services and offerings.</p>
+        </div>
       </div>
     </div>
   </section>
@@ -509,7 +503,7 @@
     <div class="modal-content">
       <div class="modal-header">
         <h3>Example Modal</h3>
-        <button class="close-button" onclick="closeModal('example')">×</button>
+        <button class="close-button" aria-label="Close Modal">×</button>
       </div>
       <div class="modal-body">
         <!-- Modal content here -->
@@ -522,7 +516,7 @@
     <div class="modal-content">
       <div class="modal-header">
         <h3>Login</h3>
-        <button class="close-button" onclick="closeModal('login')">×</button>
+        <button class="close-button" aria-label="Close Modal">×</button>
       </div>
       <div class="modal-body">
         <form id="loginForm">
@@ -545,7 +539,7 @@
     <div class="modal-content">
       <div class="modal-header">
         <h3>Sign Up</h3>
-        <button class="close-button" onclick="closeModal('signup')">×</button>
+        <button class="close-button" aria-label="Close Modal">×</button>
       </div>
       <div class="modal-body">
         <form id="signupForm">
