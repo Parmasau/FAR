@@ -20,35 +20,21 @@ document.addEventListener("DOMContentLoaded", function () {
   checkLoginState();
 });
 
-// Function to open modals and hide the navbar
+// Function to open modals
 function openModal(modalId) {
-  const modal = document.getElementById(modalId + "Modal");
+  const modal = document.getElementById(`${modalId}Modal`);
   if (modal) {
-    // Add the spinning cog icon to the modal content
-    const spinner = document.createElement("div");
-    spinner.className = "modal-spinner";
-    spinner.innerHTML =
-      '<i class="fa-solid fa-cog fa-spin fa-spin-reverse"></i>';
-    modal.querySelector(".modal-body").prepend(spinner);
-
-    // Display the modal
-    modal.style.display = "block";
-    document.body.style.overflow = "hidden"; // Prevent scrolling when modal is open
-    hideNavbar(); // Hide the navbar when a modal is opened
-
-    // Remove the spinner after a delay (e.g., 2 seconds)
-    setTimeout(() => {
-      spinner.remove();
-    }, 2000);
+    modal.style.display = "flex"; // Show the modal
+    document.body.style.overflow = "hidden"; // Disable background scrolling
   }
 }
 
-// Function to close modals and show the navbar
+// Function to close modals
 function closeModal(modalId) {
   const modal = document.getElementById(`${modalId}Modal`);
   if (modal) {
-    modal.style.display = "none";
-    document.body.style.overflow = "auto"; // Re-enable scrolling
+    modal.style.display = "none"; // Hide the modal
+    document.body.style.overflow = "auto"; // Re-enable background scrolling
   }
 }
 
@@ -457,14 +443,15 @@ document.addEventListener("DOMContentLoaded", function () {
       // Add active class to the clicked close button
       this.classList.add("active");
 
-      // Remove the active class after a short delay (e.g., 300ms)
-      setTimeout(() => {
-        this.classList.remove("active");
-      }, 300);
-
       // Close the corresponding modal
-      const modalId = this.closest(".modal-section").id.replace("Modal", "");
-      closeModal(modalId);
+      const modal = this.closest(".modal-section");
+      if (modal) {
+        modal.style.display = "none";
+        document.body.style.overflow = "auto"; // Re-enable scrolling
+      }
+
+      // Remove the active class immediately after the modal is closed
+      this.classList.remove("active");
     });
   });
 });
@@ -490,3 +477,233 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 });
+
+// This script handles the functionality for the close buttons in all modals
+
+// Function to close the modal when the 'x' button is clicked
+function setupModalCloseButtons() {
+  // Get all elements with the class "close-button"
+  const closeButtons = document.querySelectorAll(".close-button");
+
+  // Add click event listener to each close button
+  closeButtons.forEach((button) => {
+    button.addEventListener("click", function () {
+      // Find the parent modal of this close button
+      const modal = this.closest(".modal-section");
+
+      // Hide the modal
+      if (modal) {
+        modal.style.display = "none";
+        document.body.style.overflow = "auto"; // Re-enable scrolling
+      }
+    });
+  });
+}
+
+// Function to open a modal by its ID
+function openModal(modalId) {
+  const modal = document.getElementById(modalId + "Modal");
+  if (modal) {
+    modal.style.display = "flex"; // Show the modal
+    document.body.style.overflow = "hidden"; // Disable background scrolling
+  }
+}
+
+// Initialize the close buttons when the DOM is fully loaded
+document.addEventListener("DOMContentLoaded", function () {
+  setupModalCloseButtons();
+
+  // Optional: Close modal when clicking outside of the modal content
+  window.addEventListener("click", function (event) {
+    if (event.target.classList.contains("modal-section")) {
+      event.target.style.display = "none";
+      document.body.style.overflow = "auto"; // Re-enable scrolling
+    }
+  });
+
+  // Setup the "Learn More" buttons inside modals to toggle the modal body
+  const learnMoreButtons = document.querySelectorAll(".are-button");
+  learnMoreButtons.forEach((button) => {
+    button.addEventListener("click", function () {
+      const modalContent = this.closest(".modal-content");
+      const modalBody = modalContent.querySelector(".modal-body");
+      if (modalBody) {
+        // Toggle the visibility of the modal body
+        if (modalBody.style.display === "none") {
+          modalBody.style.display = "block";
+          this.textContent = "Hide Details";
+        } else {
+          modalBody.style.display = "none";
+          // Reset button text based on its original purpose
+          const originalText = this.textContent.includes("Hide")
+            ? this.textContent.replace("Hide", "Learn More")
+            : this.textContent;
+          this.textContent = originalText;
+        }
+      }
+    });
+  });
+});
+
+function closeModalWithScroll(button) {
+  // Find the parent modal of this close button
+  const modal = button.closest(".modal-section");
+
+  // Hide the modal
+  if (modal) {
+    modal.style.display = "none";
+    document.body.style.overflow = "auto"; // Re-enable scrolling
+  }
+
+  // Smooth scroll to the top of the page or a specific section
+  window.scrollTo({
+    top: 0, // Change this to the desired scroll position (e.g., `document.getElementById('home').offsetTop`)
+    behavior: "smooth", // Enable smooth scrolling
+  });
+}
+
+openModal("example"); // Opens the modal with ID "exampleModal"
+
+document.addEventListener("DOMContentLoaded", function () {
+  const footerLinks = document.querySelectorAll(".footer-link");
+
+  footerLinks.forEach((link) => {
+    link.addEventListener("click", function (event) {
+      event.preventDefault(); // Prevent default anchor behavior
+
+      // Remove active class from all footer links
+      footerLinks.forEach((link) => link.classList.remove("active"));
+
+      // Add active class to the clicked link
+      this.classList.add("active");
+
+      // Scroll to the corresponding section
+      const targetId = this.getAttribute("href").substring(1); // Get the section ID
+      const targetSection = document.getElementById(targetId);
+      if (targetSection) {
+        targetSection.scrollIntoView({ behavior: "smooth" });
+      }
+    });
+  });
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+    // Form submission handling
+    const contactForm = document.getElementById('contactForm');
+    if (contactForm) {
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const message = document.getElementById('message').value;
+            
+            // Here you would typically send the form data to a server
+            console.log('Form submitted:', { name, email, message });
+            
+            // Form validation
+            if (!name || !email || !message) {
+                alert('Please fill in all required fields');
+                return;
+            }
+            
+            // Email validation
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                alert('Please enter a valid email address');
+                return;
+            }
+            
+            // Show success message
+            alert('Thank you for your message. The Farm Nest team will get back to you soon!');
+            
+            // Reset form
+            contactForm.reset();
+        });
+    }
+    
+    // WhatsApp button functionality
+    const whatsappBtn = document.querySelector('.whatsapp-btn');
+    if (whatsappBtn) {
+        whatsappBtn.addEventListener('click', function() {
+            // Farm Nest WhatsApp number
+            window.open('https://wa.me/254722334455', '_blank');
+        });
+    }
+    
+    // Search functionality
+    const searchBtn = document.querySelector('.search-btn');
+    const searchInput = document.querySelector('.search-input');
+    
+    if (searchBtn && searchInput) {
+        searchBtn.addEventListener('click', function() {
+            const searchTerm = searchInput.value.trim();
+            if (searchTerm) {
+                // Here you would typically redirect to search results page
+                console.log('Searching for:', searchTerm);
+                // Example: window.location.href = `/search?q=${encodeURIComponent(searchTerm)}`;
+                alert(`Searching the Farm Nest site for: ${searchTerm}`);
+            }
+        });
+        
+        // Search on Enter key
+        searchInput.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                searchBtn.click();
+            }
+        });
+    }
+});
+
+document.querySelectorAll('.footer-link').forEach(link => {
+  link.addEventListener('click', function (e) {
+    e.preventDefault();
+    const targetId = this.getAttribute('href').substring(1);
+    const targetSection = document.getElementById(targetId);
+    if (targetSection) {
+      targetSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  });
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+  // Select all buttons with the classes `.btn-primary` and `.are-button`
+  const buttons = document.querySelectorAll(".btn-primary, .are-button");
+
+  buttons.forEach((button) => {
+    button.addEventListener("click", function () {
+      // Remove the "active" class from all buttons
+      buttons.forEach((btn) => btn.classList.remove("active"));
+
+      // Add the "active" class to the clicked button
+      this.classList.add("active");
+
+      // Find the parent modal of the clicked button
+      const modalContent = this.closest(".modal-content");
+      const modalBody = modalContent.querySelector(".modal-body");
+
+      // Toggle the visibility of the modal body
+      if (modalBody) {
+        if (modalBody.style.display === "none" || modalBody.style.display === "") {
+          modalBody.style.display = "block"; // Show the content
+        } else {
+          modalBody.style.display = "none"; // Hide the content
+        }
+      }
+    });
+  });
+});
+
+@media (max-width: 768px) {
+  .modal-image h3 {
+    font-size: 2rem;
+  }
+
+  .modal-image p {
+    font-size: 1rem;
+  }
+
+  .modal-content {
+    padding: 10px;
+  }
+}

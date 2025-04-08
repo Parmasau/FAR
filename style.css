@@ -11,14 +11,14 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: Arial, sans-serif;
+  font-family: "Arial", sans-serif;
 }
 
 body {
+  color: #333;
+  line-height: 1.6;
   background-color: #f8f9fa;
   font-family: "Arial", sans-serif;
-  line-height: 1.6;
-  color: var(--text-color);
 }
 
 /* Header Styles */
@@ -446,7 +446,7 @@ section {
 .container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 15px;
+  padding: 20px;
 }
 
 /* Card Styling (Unified for all cards) */
@@ -607,9 +607,9 @@ section {
 
 /* Footer Styles */
 footer {
-  background-color: var(--primary-color);
-  color: white;
-  padding: 3rem 0;
+  background-color: #f8f9fa;
+  padding: 50px 0 20px;
+  margin-top: 50px;
 }
 
 footer h4 {
@@ -651,95 +651,111 @@ social-links a:hover {
 }
 
 .copyright {
-  margin-top: 2rem;
-  padding-top: 1rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  background-color: #3a6b35;
+  color: white;
   text-align: center;
+  padding: 15px 0;
+  margin-top: 30px;
+  font-size: 14px;
+  display: flex;
+  justify-content: space-between;
+  padding: 15px 50px;
+}
+
+copyright a {
+  color: #b8e994;
+  text-decoration: none;
 }
 
 /* Modal Styles */
 .modal-section {
-  display: none;
+  display: none; /* Initially hidden */
   position: fixed;
-  z-index: 1;
-  left: 0;
   top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
-  overflow: auto;
-  background: url("images/mission.jpg") no-repeat center center/cover; /* Background image */
+  background: rgba(0, 0, 0, 0.8); /* Semi-transparent black overlay */
   z-index: 1000;
   justify-content: center;
   align-items: center;
-  animation: fadeIn 0.3s ease-in-out;
+  overflow: hidden; /* Prevent scrolling */
 }
 
+/* Modal Content Styling */
 .modal-content {
-  background: transparent; /* Remove white background */
-  margin: 0; /* Remove margin for full coverage */
+  width: 100%;
+  max-width: 800px;
+  background: white;
+  border-radius: 10px;
   padding: 20px;
-  border: none; /* Remove border */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Modal Content Styling */
+.modal-content {
   width: 100%;
-  height: 100%; /* Full height */
-  border-radius: 0; /* Remove border radius */
-  overflow-y: auto; /* Enable scrolling */
+  height: 100%; /* Full screen */
   display: flex;
-  align-items: center;
-  justify-content: center;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
   text-align: center;
-  transition: transform 0.5s ease;
-}
-
-.modal-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-  padding-bottom: 10px;
-  border-bottom: 1px solid #ddd;
-  background: none; /* Remove green background */
-  color: white; /* White text for better contrast */
   padding: 0; /* Remove padding */
-  border-bottom: none; /* Remove the line */
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  background: none; /* Transparent background */
+  border-radius: 0; /* Remove rounded corners */
+  box-shadow: none; /* Remove shadow */
+  overflow: hidden; /* Prevent scrolling */
+}
+
+/* Modal Image Styling */
+.modal-image {
+  position: relative;
   width: 100%;
+  height: 100%; /* Full screen height */
+  display: flex;
+  flex-direction: column; /* Stack elements vertically */
+  justify-content: center; /* Center elements vertically */
+  align-items: center; /* Center elements horizontally */
+  background-size: cover; /* Ensure the image covers the container */
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Prevent image repetition */
+  text-align: center; /* Center text */
+  color: white; /* White text for better contrast */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Add shadow for readability */
+  z-index: 1; /* Ensure it appears above the background */
 }
 
-.modal-header h3 {
-  margin: 0;
-  font-size: 2rem;
-  font-weight: bold;
-  color: white; /* White text */
+/* Modal Header Styling */
+.modal-header {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  z-index: 2; /* Ensure it appears above the image */
 }
 
-/* Close Button Styles */
-.close-button {
+.modal-header .close-button {
   background: none;
   border: none;
   font-size: 1.5rem;
   cursor: pointer;
-  color: white; /* White color for better contrast */
-  transition: color 0.3s;
+  color: white;
+  transition: color 0.3s ease;
 }
 
-.close-button:hover {
-  color: red; /* Change color when hovered */
+.modal-header .close-button:hover {
+  color: red; /* Red on hover */
 }
 
-.close-button.active {
-  color: red; /* Change color when active */
-  transform: scale(1.2); /* Slightly enlarge the button */
-  transition: transform 0.3s ease, color 0.3s ease;
-}
-
+/* Modal Body Styling */
 .modal-body {
-  padding: 20px 0;
   width: 100%;
-  color: white; /* White text for better contrast */
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Add shadow for readability */
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.6); /* Semi-transparent black background for content */
+  border-radius: 10px;
 }
 
 .modal-body h4 {
@@ -751,10 +767,69 @@ social-links a:hover {
 .modal-body p {
   font-size: 1.2rem;
   line-height: 1.6;
-  margin-bottom: 30px;
 }
 
-.modal-image {
+/* Button Styling */
+.modal-body .btn-primary {
+  background-color: #4caf50; /* Green color */
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.modal-body .btn-primary:hover {
+  background-color: #388e3c; /* Darker green on hover */
+  transform: scale(1.05); /* Slight zoom effect */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .modal-body h4 {
+    font-size: 1.5rem;
+  }
+
+  .modal-body p {
+    font-size: 1rem;
+  }
+
+  .modal-body .btn-primary {
+    font-size: 14px;
+    padding: 8px 16px;
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .modal-body h4 {
+    font-size: 1.5rem;
+  }
+
+  .modal-body p {
+    font-size: 1rem;
+  }
+}
+
+.modal-body {
+  display: none; /* Initially hidden */
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.9); /* Semi-transparent white background */
+  border-radius: 5px;
+  margin-top: 20px;
+}
+
+.modal-body {
+  text-align: center;
+}
+
+.modal-body h4 {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 10px;
   position: relative;
   width: 100%;
   height: 100vh; /* Make the image cover the full screen height */
@@ -911,13 +986,13 @@ social-links a:hover {
 
 /* Form Styles */
 .form-group {
-  margin-bottom: 15px;
+  margin-bottom: 20px;
 }
 
 .form-group label {
   display: block;
   margin-bottom: 5px;
-  font-weight: bold;
+  font-weight: 500;
 }
 
 .form-group input,
@@ -927,6 +1002,11 @@ social-links a:hover {
   padding: 8px;
   border: 1px solid #ddd;
   border-radius: 4px;
+}
+
+textarea.form-control {
+  min-height: 120px;
+  resize: vertical;
 }
 
 /* Weather Section */
@@ -1213,6 +1293,8 @@ nav a.active {
 .navbar-link.active {
   background-color: rgba(255, 255, 255, 0.3); /* Highlight active link */
   font-weight: bold;
+  color: #d4ffd4; /* Light green for active link */
+  text-decoration: underline;
 }
 
 /* Responsive Navbar */
@@ -1422,18 +1504,15 @@ nav a.active {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.6); /* Semi-transparent black background */
+  background: rgba(0, 0, 0, 0.8); /* Semi-transparent black background */
   z-index: 1000;
   justify-content: center;
   align-items: center;
-  animation: fadeIn 0.3s ease-in-out;
+  overflow: hidden; /* Prevent scrolling */
 }
 
 /* Modal Content Styling */
 .modal-content {
-  background: transparent; /* Remove white background */
-  border-radius: 0; /* Remove rounded corners */
-  box-shadow: none; /* Remove shadow */
   width: 100%;
   height: 100%; /* Full screen */
   display: flex;
@@ -1441,8 +1520,11 @@ nav a.active {
   justify-content: center;
   align-items: center;
   text-align: center;
-  padding: 0;
-  overflow: hidden; /* Prevent content overflow */
+  padding: 0; /* Remove padding */
+  background: none; /* Transparent background */
+  border-radius: 0; /* Remove rounded corners */
+  box-shadow: none; /* Remove shadow */
+  overflow: hidden; /* Prevent scrolling */
 }
 
 /* Modal Image Styling */
@@ -1460,6 +1542,7 @@ nav a.active {
   text-align: center; /* Center text */
   color: white; /* White text for better contrast */
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Add shadow for readability */
+  z-index: 1; /* Ensure it appears above the background */
 }
 
 /* Modal Header Styling */
@@ -1469,21 +1552,12 @@ nav a.active {
   left: 20px;
   right: 20px;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
   align-items: center;
-  color: white;
   z-index: 2; /* Ensure it appears above the image */
 }
 
-.modal-header h3 {
-  margin: 0;
-  font-size: 2rem;
-  font-weight: bold;
-  color: white;
-}
-
-/* Close Button Styling */
-.close-button {
+.modal-header .close-button {
   background: none;
   border: none;
   font-size: 1.5rem;
@@ -1492,41 +1566,27 @@ nav a.active {
   transition: color 0.3s ease;
 }
 
-.close-button:hover {
+.modal-header .close-button:hover {
   color: red; /* Red on hover */
 }
 
-/* Active State for Close Button */
-.close-button.active {
-  color: red; /* Change color to red when active */
-  transform: scale(1.2); /* Slightly enlarge the button */
-  transition: transform 0.3s ease, color 0.3s ease;
-}
-
-/* Modal Body Styling */
-.modal-body {
-  position: relative;
-  z-index: 2; /* Ensure it appears above the image */
-  color: white;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Add shadow for readability */
-  text-align: center;
-  padding: 20px;
-}
-
-.modal-body h4 {
-  font-size: 2rem;
+/* Modal Image Content */
+.modal-image h3 {
+  font-size: 2.5rem;
   font-weight: bold;
   margin-bottom: 20px;
+  z-index: 2; /* Ensure it appears above the image */
 }
 
-.modal-body p {
+.modal-image p {
   font-size: 1.2rem;
   line-height: 1.6;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
+  z-index: 2; /* Ensure it appears above the image */
 }
 
 /* Button Styling */
-.are-button {
+.modal-image .are-button {
   background-color: #4caf50; /* Green color */
   color: white;
   border: none;
@@ -1536,19 +1596,1287 @@ nav a.active {
   border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.3s ease, transform 0.3s ease;
+  margin-top: 20px; /* Add spacing between the button and the text */
+  z-index: 2; /* Ensure it appears above the image */
 }
 
-.are-button:hover {
+.modal-image .are-button:hover {
   background-color: #388e3c; /* Darker green on hover */
   transform: scale(1.05); /* Slight zoom effect */
 }
 
 /* Responsive Design */
 @media (max-width: 768px) {
-  .modal-header h3 {
-    font-size: 1.5rem;
+  .modal-image h3 {
+    font-size: 2rem;
   }
 
+  .modal-image p {
+    font-size: 1rem;
+  }
+
+  .modal-image .are-button {
+    font-size: 14px;
+    padding: 8px 16px;
+  }
+}
+
+/* Modal Section Styling */
+.modal-section {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8); /* Semi-transparent black background */
+  z-index: 1000;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden; /* Prevent scrolling */
+}
+
+/* Modal Content Styling */
+.modal-content {
+  width: 100%;
+  height: 100%; /* Full screen */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 0; /* Remove padding */
+  background: none; /* Transparent background */
+  border-radius: 0; /* Remove rounded corners */
+  box-shadow: none; /* Remove shadow */
+  overflow: hidden; /* Prevent scrolling */
+}
+
+/* Modal Image Styling */
+.modal-image {
+  position: relative;
+  width: 100%;
+  height: 100%; /* Full screen height */
+  display: flex;
+  flex-direction: column; /* Stack elements vertically */
+  justify-content: center; /* Center elements vertically */
+  align-items: center; /* Center elements horizontally */
+  background-size: cover; /* Ensure the image covers the container */
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Prevent image repetition */
+  text-align: center; /* Center text */
+  color: white; /* White text for better contrast */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Add shadow for readability */
+  z-index: 1; /* Ensure it appears above the background */
+}
+
+/* Modal Header Styling */
+.modal-header {
+  position: absolute;
+  top: 10px;
+  left: 20px;
+  right: 20px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  z-index: 2; /* Ensure it appears above the image */
+}
+
+.modal-header .close-button {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: white;
+  transition: color 0.3s ease;
+}
+
+.modal-header .close-button:hover {
+  color: red; /* Red on hover */
+}
+
+/* Modal Image Content */
+.modal-image h3 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+  z-index: 2; /* Ensure it appears above the image */
+}
+
+.modal-image p {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  margin-bottom: 20px;
+  z-index: 2; /* Ensure it appears above the image */
+}
+
+/* Button Styling */
+.modal-image .are-button {
+  background-color: #4caf50; /* Green color */
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  margin-top: 20px; /* Add spacing between the button and the text */
+  z-index: 2; /* Ensure it appears above the image */
+}
+
+.modal-image .are-button:hover {
+  background-color: #388e3c; /* Darker green on hover */
+  transform: scale(1.05); /* Slight zoom effect */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .modal-image h3 {
+    font-size: 2rem;
+  }
+
+  .modal-image p {
+    font-size: 1rem;
+  }
+
+  .modal-image .are-button {
+    font-size: 14px;
+    padding: 8px 16px;
+  }
+}
+
+/* Weather Section Styling */
+.weather-section {
+  background: url("images/weather.jpg") no-repeat center center/cover;
+  padding: 60px 20px;
+  text-align: center;
+  color: white;
+}
+
+.weather-container {
+  max-width: 800px;
+  margin: 0 auto;
+  background: rgba(0, 0, 0, 0.6);
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.weather-heading {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+}
+
+.weather-subheading {
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+}
+
+.weather-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.weather-input-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  width: 100%;
+}
+
+.form-group {
+  flex: 1;
+  min-width: 200px;
+}
+
+.form-group label {
+  display: block;
+  font-size: 0.9rem;
+  margin-bottom: 5px;
+  color: white;
+}
+
+.form-control {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+.weather-submit {
+  background-color: #00863f;
+  color: white;
+  padding: 10px 20px;
+  font-size: 1rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.weather-submit:hover {
+  background-color: #005f2d;
+  transform: scale(1.05);
+}
+
+/* Climate Information Section */
+.climate-info {
+  padding: 3rem 1rem;
+  background: url("images/weather.jpg") no-repeat center center/cover; /* Background image */
+  text-align: center;
+  color: white;
+}
+
+.climate-info h2 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 1.5rem;
+  color: white; /* White text for the heading */
+}
+
+.climate-info p {
+  font-size: 1.2rem;
+  line-height: 1.8;
+  margin-bottom: 2rem;
+  color: white; /* White text for the paragraph */
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Carousel Styling */
+.climate-carousel {
+  max-width: 900px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.carousel-inner {
+  display: flex;
+  overflow: hidden;
+  border-radius: 15px; /* Rounded corners for the carousel */
+  background-color: #00863f; /* Green background for the carousel */
+  padding: 2rem;
+}
+
+.carousel-item {
+  flex: 0 0 100%;
+  text-align: center;
+  color: white;
+  transition: transform 0.5s ease;
+}
+
+.carousel-content h3 {
+  font-size: 1.8rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  color: white; /* White text for the heading */
+}
+
+.carousel-content p {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: white; /* White text for the paragraph */
+}
+
+/* Carousel Controls */
+.carousel-control-prev,
+.carousel-control-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.8); /* White background for controls */
+  color: #00863f; /* Green color for arrows */
+  border: none;
+  font-size: 24px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+}
+
+.carousel-control-prev:hover,
+.carousel-control-next:hover {
+  background: rgba(255, 255, 255, 1); /* Fully white on hover */
+}
+
+.carousel-control-prev {
+  left: -50px;
+}
+
+.carousel-control-next {
+  right: -50px;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  font-size: 1.5rem;
+}
+
+/* Carousel Indicators */
+.carousel-indicators {
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+.carousel-indicators button {
+  width: 10px;
+  height: 10px;
+  background: white; /* White dots */
+  border: none;
+  border-radius: 50%;
+  margin: 0 5px;
+  cursor: pointer;
+}
+
+.carousel-indicators button.active {
+  background: #00863f; /* Green color for active dot */
+}
+
+/* Weather Section Styling */
+.weather-section {
+  background: url("images/background.png") no-repeat center center/cover; /* Background image */
+  padding: 60px 20px;
+  text-align: center;
+  color: white;
+}
+
+.weather-container {
+  max-width: 800px;
+  margin: 0 auto;
+  background: rgba(0, 0, 0, 0.6); /* Semi-transparent black background */
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.weather-heading {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+}
+
+.weather-subheading {
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+}
+
+.weather-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.weather-input-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  width: 100%;
+}
+
+.form-group {
+  flex: 1;
+  min-width: 200px;
+}
+
+.form-group label {
+  display: block;
+  font-size: 0.9rem;
+  margin-bottom: 5px;
+  color: white;
+}
+
+.form-control {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+.weather-submit {
+  background-color: #00863f; /* Green color */
+  color: white;
+  padding: 10px 20px;
+  font-size: 1rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.weather-submit:hover {
+  background-color: #005f2d; /* Darker green on hover */
+  transform: scale(1.05); /* Slight zoom effect */
+}
+
+/* Climate Information Section */
+.climate-info {
+  margin-top: 50px;
+  text-align: center;
+  color: white;
+}
+
+.climate-info h2 {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #00863f; /* Green color for the heading */
+}
+
+.climate-info p {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  margin-bottom: 30px;
+  color: black; /* Gray color for the paragraph */
+}
+
+/* Carousel Styling */
+.carousel {
+  position: relative;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.carousel-inner {
+  display: flex;
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+.carousel-item {
+  flex: 0 0 100%;
+  text-align: center;
+  background: rgba(0, 134, 63, 0.9); /* Green background */
+  color: white;
+  padding: 20px;
+  transition: transform 0.5s ease;
+}
+
+.carousel-content h3 {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.carousel-content p {
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  font-size: 24px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.carousel-control-prev {
+  left: -50px;
+}
+
+.carousel-control-next {
+  right: -50px;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  font-size: 1.5rem;
+}
+
+.carousel-indicators {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.carousel-indicators button {
+  width: 10px;
+  height: 10px;
+  background: white;
+  border: none;
+  border-radius: 50%;
+  margin: 0 5px;
+  cursor: pointer;
+}
+
+.carousel-indicators button.active {
+  background: #00863f; /* Green color for active indicator */
+}
+
+/* Home Carousel Section */
+#homeCarousel {
+  width: 100%; /* Full width */
+  height: 100vh; /* Full viewport height */
+  position: relative;
+  overflow: hidden;
+}
+
+#homeCarousel .carousel-inner {
+  width: 100%;
+  height: 100%; /* Full height */
+}
+
+#homeCarousel .carousel-item {
+  width: 100%;
+  height: 100%; /* Full height */
+  background-size: cover; /* Ensure the image covers the entire container */
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Prevent image repetition */
+}
+
+#homeCarousel .carousel-item img {
+  width: 100%;
+  height: 100%; /* Full height */
+  object-fit: cover; /* Ensure the image covers the container without distortion */
+}
+
+#homeCarousel .carousel-caption {
+  position: absolute;
+  top: 50%; /* Center vertically */
+  left: 50%; /* Center horizontally */
+  transform: translate(-50%, -50%); /* Center the text */
+  text-align: center;
+  color: white;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Add shadow for readability */
+}
+
+#homeCarousel .carousel-caption h1 {
+  font-size: 3rem; /* Large heading */
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+#homeCarousel .carousel-caption p {
+  font-size: 1.2rem; /* Subheading */
+  margin-bottom: 0;
+}
+
+#homeCarousel .carousel-control-prev,
+#homeCarousel .carousel-control-next {
+  width: 50px;
+  height: 50px;
+  background: rgba(0, 0, 0, 0.5); /* Semi-transparent background for controls */
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#homeCarousel .carousel-control-prev-icon,
+#homeCarousel .carousel-control-next-icon {
+  font-size: 1.5rem;
+  color: white;
+}
+
+/* Carousel Indicators */
+.carousel-indicators {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.carousel-indicators button {
+  width: 10px;
+  height: 10px;
+  background: white;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.carousel-indicators button.active {
+  background: #00863f; /* Green color for active indicator */
+}
+
+/* Responsive Design for Carousel */
+@media (max-width: 768px) {
+  #homeCarousel .carousel-caption {
+    top: 60%; /* Adjust position for smaller screens */
+    padding: 15px;
+  }
+
+  #homeCarousel .carousel-caption h1 {
+    font-size: 2rem; /* Smaller font size for heading */
+  }
+
+  #homeCarousel .carousel-caption p {
+    font-size: 1rem; /* Smaller font size for subheading */
+  }
+}
+
+/* Home Carousel Section */
+#headerCarousel {
+  width: 100%; /* Full width */
+  height: 100vh; /* Full viewport height */
+  position: relative;
+  overflow: hidden;
+}
+
+#headerCarousel .carousel-inner {
+  width: 100%;
+  height: 100%; /* Full height */
+}
+
+#headerCarousel .carousel-item {
+  width: 100%;
+  height: 100%; /* Full height */
+  background-size: cover; /* Ensure the image covers the entire container */
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Prevent image repetition */
+}
+
+#headerCarousel .carousel-item img {
+  width: 100%;
+  height: 100%; /* Full height */
+  object-fit: cover; /* Ensure the image covers the container without distortion */
+}
+
+#headerCarousel .carousel-caption {
+  position: absolute;
+  bottom: 20%; /* Adjust the position of the caption */
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  color: white;
+  background: rgba(
+    0,
+    0,
+    0,
+    0.5
+  ); /* Semi-transparent background for better readability */
+  padding: 20px;
+  border-radius: 10px;
+}
+
+#headerCarousel .carousel-caption h5 {
+  font-size: 2.5rem; /* Adjust font size for the heading */
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+#headerCarousel .carousel-caption p {
+  font-size: 1.2rem; /* Adjust font size for the paragraph */
+  margin-bottom: 0;
+}
+
+#headerCarousel .carousel-control-prev,
+#headerCarousel .carousel-control-next {
+  width: 50px;
+  height: 50px;
+  background: rgba(0, 0, 0, 0.5); /* Semi-transparent background for controls */
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#headerCarousel .carousel-control-prev-icon,
+#headerCarousel .carousel-control-next-icon {
+  font-size: 1.5rem;
+  color: white;
+}
+
+/* Responsive Design for Carousel */
+@media (max-width: 768px) {
+  #headerCarousel .carousel-caption {
+    bottom: 10%; /* Adjust position for smaller screens */
+    padding: 15px;
+  }
+
+  #headerCarousel .carousel-caption h5 {
+    font-size: 1.8rem; /* Smaller font size for heading */
+  }
+
+  #headerCarousel .carousel-caption p {
+    font-size: 1rem; /* Smaller font size for paragraph */
+  }
+}
+
+/* Climate Information Section Styles */
+.climate-info {
+  padding: 3rem 1rem;
+  background-color: #f8f9fa;
+}
+
+.climate-info h2 {
+  margin-bottom: 1.5rem;
+  font-weight: 700;
+  color: #2c3e50;
+}
+
+.climate-info p {
+  margin-bottom: 2rem;
+  line-height: 1.6;
+  color: #505050;
+}
+
+/* Carousel Styling */
+.climate-carousel {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.carousel-item {
+  padding: 2rem;
+  border-radius: 8px;
+  background-color: white;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  height: 100%;
+}
+
+.carousel-content h3 {
+  color: #27ae60;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.carousel-content p {
+  margin-bottom: 0;
+}
+
+/* Slick carousel custom arrow styling */
+.slick-prev,
+.slick-next {
+  width: 40px;
+  height: 40px;
+  background-color: rgba(39, 174, 96, 0.8);
+  border-radius: 50%;
+  z-index: 1;
+}
+
+.slick-prev:hover,
+.slick-next:hover {
+  background-color: rgba(39, 174, 96, 1);
+}
+
+.slick-prev {
+  left: -20px;
+}
+
+.slick-next {
+  right: -20px;
+}
+
+.slick-dots li button:before {
+  color: #27ae60;
+}
+
+.slick-dots li.slick-active button:before {
+  color: #219653;
+}
+
+/* Weather and Climate Section Styling */
+.weather-climate-section {
+  background: url("images/weather.jpg") no-repeat center center/cover; /* Shared background image */
+  padding: 60px 20px;
+  color: white;
+}
+
+.weather-container,
+.climate-info {
+  max-width: 900px;
+  margin: 0 auto;
+  background: rgba(0, 0, 0, 0.6); /* Semi-transparent black background */
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.weather-heading {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+}
+
+.weather-subheading {
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+}
+
+.weather-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.weather-input-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  width: 100%;
+}
+
+.form-group {
+  flex: 1;
+  min-width: 200px;
+}
+
+.form-group label {
+  display: block;
+  font-size: 0.9rem;
+  margin-bottom: 5px;
+  color: white;
+}
+
+.form-control {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+.weather-submit {
+  background-color: #00863f; /* Green color */
+  color: white;
+  padding: 10px 20px;
+  font-size: 1rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.weather-submit:hover {
+  background-color: #005f2d; /* Darker green on hover */
+  transform: scale(1.05); /* Slight zoom effect */
+}
+
+.climate-info h2 {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #00863f; /* Green color for the heading */
+}
+
+.climate-info p {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  margin-bottom: 30px;
+  color: white; /* White text for the paragraph */
+}
+
+/* Carousel Styling */
+.climate-carousel {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.carousel-inner {
+  display: flex;
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+.carousel-item {
+  flex: 0 0 100%;
+  text-align: center;
+  background: rgba(0, 134, 63, 0.9); /* Green background */
+  color: white;
+  padding: 20px;
+  transition: transform 0.5s ease;
+}
+
+.carousel-content h3 {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.carousel-content p {
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  font-size: 24px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.carousel-control-prev {
+  left: -50px;
+}
+
+.carousel-control-next {
+  right: -50px;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  font-size: 1.5rem;
+}
+
+.carousel-indicators {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.carousel-indicators button {
+  width: 10px;
+  height: 10px;
+  background: white;
+  border: none;
+  border-radius: 50%;
+  margin: 0 5px;
+  cursor: pointer;
+}
+
+.carousel-indicators button.active {
+  background: #00863f; /* Green color for active indicator */
+}
+
+/* Knowledge Section */
+.knowledge-section {
+  padding: 60px 20px;
+  background-color: #f8f9fa;
+  text-align: center;
+}
+
+.knowledge-card {
+  background: white;
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-align: center; /* Center-align content */
+  padding: 20px;
+}
+
+.knowledge-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+.knowledge-card h3 {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.knowledge-card p {
+  font-size: 1rem;
+  color: #555;
+}
+
+.knowledge-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 10px 10px 0 0;
+  margin-bottom: 15px;
+}
+
+.knowledge-card i {
+  font-size: 48px;
+  color: #00863f; /* Green color for icons */
+  margin-bottom: 10px;
+}
+
+.knowledge-card a {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 10px 20px;
+  font-size: 1rem;
+  font-weight: bold;
+  color: white;
+  background-color: #00863f; /* Green background */
+  border-radius: 5px;
+  text-decoration: none;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.knowledge-card a:hover {
+  background-color: #005f2d; /* Darker green on hover */
+  transform: scale(1.05); /* Slight zoom effect */
+}
+
+/* Customer Section */
+.customer-section {
+  padding: 60px 20px;
+  background-color: #f8f9fa;
+  text-align: center;
+}
+
+.care-card {
+  background: white;
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.care-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+.care-card h3 {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.care-card p {
+  font-size: 1rem;
+  color: #555;
+}
+
+.care-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 10px 10px 0 0;
+}
+
+/* Footer Styles */
+.footer {
+  background-color: #00863f; /* Green background */
+  color: white;
+  padding: 50px 20px;
+  text-align: left;
+}
+
+.footer h4 {
+  margin-bottom: 20px;
+  font-size: 1.5rem;
+  color: #d4ffd4; /* Light green for headings */
+}
+
+.footer p {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #d4ffd4; /* Light green for text */
+}
+
+.footer-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-links li {
+  margin-bottom: 10px;
+}
+
+.footer-links li a {
+  color: white;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: color 0.3s ease;
+}
+
+.footer-links li a:hover,
+.footer-links li a.active {
+  color: #d4ffd4; /* Light green for active and hover states */
+  text-decoration: underline;
+}
+
+.social-links {
+  display: flex;
+  gap: 15px;
+  margin-top: 10px;
+}
+
+.social-icon {
+  color: white;
+  font-size: 1.5rem;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.social-icon:hover {
+  color: #d4ffd4; /* Light green on hover */
+  transform: scale(1.1); /* Slight zoom effect */
+}
+
+.copyright {
+  margin-top: 30px;
+  font-size: 0.9rem;
+  color: #d4ffd4; /* Light green text */
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  padding-top: 15px;
+  text-align: center;
+}
+
+/* Home Section Styling */
+.home-section {
+  background: url("images/weather.jpg") no-repeat center center/cover; /* Background image */
+  width: 100%;
+  height: 100vh; /* Full viewport height */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: white;
+  position: relative;
+}
+
+.home-content {
+  max-width: 800px;
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.6); /* Semi-transparent black background for better readability */
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.home-content h1 {
+  font-size: 3rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+}
+
+.home-content p {
+  font-size: 1.2rem;
+  line-height: 1.6;
+}
+
+/* Modal Section Styling */
+.modal-section {
+  display: none; /* Initially hidden */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: white; /* White background for section-like appearance */
+  z-index: 1000;
+  overflow-y: auto; /* Enable scrolling for long content */
+  padding: 60px 20px; /* Add padding for spacing */
+}
+
+/* Modal Content Styling */
+.modal-content {
+  width: 100%;
+  height: auto; /* Allow content to determine height */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 20px;
+  background: none; /* Transparent background */
+  border-radius: 0; /* Remove rounded corners */
+  box-shadow: none; /* Remove shadow */
+}
+
+/* Modal Header Styling */
+.modal-header {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  padding: 10px;
+  background: #f8f9fa; /* Light gray background for header */
+  border-bottom: 1px solid #ddd; /* Add a border for separation */
+}
+
+.modal-header .close-button {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #333;
+  transition: color 0.3s ease;
+}
+
+.modal-header .close-button:hover {
+  color: red; /* Red on hover */
+}
+
+/* Modal Body Styling */
+.modal-body {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 20px;
+}
+
+.modal-body h4 {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #00863f; /* Green color for headings */
+}
+
+.modal-body p {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  color: #555; /* Gray color for text */
+  margin-bottom: 20px;
+}
+
+/* Button Styling */
+.modal-body .btn-primary {
+  background-color: #00863f; /* Green color */
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.modal-body .btn-primary:hover {
+  background-color: #005f2d; /* Darker green on hover */
+  transform: scale(1.05); /* Slight zoom effect */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
   .modal-body h4 {
     font-size: 1.5rem;
   }
@@ -1556,14 +2884,560 @@ nav a.active {
   .modal-body p {
     font-size: 1rem;
   }
+
+  .modal-body .btn-primary {
+    font-size: 14px;
+    padding: 8px 16px;
+  }
 }
 
-/* Fade In Animation */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
+/* Contact Us Modal Styling */
+.contact-modal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background-color: #f8f9fa; /* Light gray background */
+  color: #333; /* Dark gray text */
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.contact-header h2 {
+  font-size: 2rem;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 10px;
+  color: #333; /* Dark gray */
+}
+
+.contact-header h2 span {
+  color: #00863f; /* Green color for emphasis */
+}
+
+.contact-header p {
+  font-size: 1rem;
+  text-align: center;
+  margin-bottom: 20px;
+  color: #555; /* Medium gray */
+}
+
+.contact-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  width: 100%;
+}
+
+.contact-info {
+  flex: 1;
+  min-width: 300px;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #555; /* Medium gray */
+}
+
+.contact-info p {
+  margin-bottom: 10px;
+}
+
+.contact-form {
+  flex: 1;
+  min-width: 300px;
+}
+
+.contact-form .form-group {
+  margin-bottom: 15px;
+}
+
+.contact-form label {
+  display: block;
+  font-size: 0.9rem;
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: #333; /* Dark gray */
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 1rem;
+  color: #333; /* Dark gray */
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: #00863f; /* Green border on focus */
+  outline: none;
+}
+
+.contact-form button {
+  background-color: #ff9800; /* Orange color for the button */
+  color: white;
+  padding: 10px 20px;
+  font-size: 1rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.contact-form button:hover {
+  background-color: #e68a00; /* Darker orange on hover */
+  transform: scale(1.05); /* Slight zoom effect */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .contact-container {
+    flex-direction: column;
+    align-items: center;
   }
-  to {
-    opacity: 1;
+
+  .contact-info,
+  .contact-form {
+    min-width: 100%;
   }
+}
+
+/* Contact Us Modal Styling */
+.contact-header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.contact-header h1 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #333;
+}
+
+.contact-header h1 span {
+  color: #00863f; /* Green color for emphasis */
+}
+
+.contact-header hr {
+  width: 50px;
+  height: 3px;
+  background-color: #00863f;
+  border: none;
+  margin: 10px auto;
+}
+
+.contact-header p {
+  font-size: 1rem;
+  color: #555;
+}
+
+.contact-content {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.contact-info {
+  flex: 1;
+  min-width: 300px;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #555;
+}
+
+.contact-info h3 {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.contact-info p {
+  margin-bottom: 10px;
+}
+
+.contact-form {
+  flex: 1;
+  min-width: 300px;
+}
+
+.contact-form .form-group {
+  margin-bottom: 15px;
+}
+
+.contact-form label {
+  display: block;
+  font-size: 0.9rem;
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: #333;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 1rem;
+  color: #333;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: #00863f; /* Green border on focus */
+  outline: none;
+}
+
+.contact-form button {
+  background-color: #00863f; /* Green color */
+  color: white;
+  padding: 10px 20px;
+  font-size: 1rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.contact-form button:hover {
+  background-color: #005f2d; /* Darker green on hover */
+  transform: scale(1.05); /* Slight zoom effect */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .contact-content {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .contact-info,
+  .contact-form {
+    min-width: 100%;
+  }
+}
+
+/* Header Banner */
+.header-banner {
+  background-color: #3a6b35;
+  height: 200px;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  background-image: url("farm-banner.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+/* WhatsApp Button */
+.whatsapp-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #25d366;
+  color: white;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  z-index: 999;
+  transition: transform 0.3s;
+}
+
+.whatsapp-btn:hover {
+  transform: scale(1.1);
+}
+
+/* Footer Content */
+.footer-content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 30px;
+}
+
+.footer-column {
+  flex: 1;
+  min-width: 200px;
+}
+
+.footer-column h3 {
+  margin-bottom: 20px;
+  font-size: 18px;
+  color: #3a6b35;
+}
+
+.contact-list {
+  list-style: none;
+}
+
+.contact-list li {
+  margin-bottom: 10px;
+}
+
+.quick-links a {
+  display: block;
+  color: #666;
+  text-decoration: none;
+  padding: 5px 0;
+  transition: color 0.3s;
+}
+
+.quick-links a:hover {
+  color: #4c9a2a;
+}
+
+.quick-links i {
+  margin-right: 10px;
+  color: #4c9a2a;
+}
+
+.search-container {
+  position: relative;
+}
+
+.search-input {
+  width: 100%;
+  padding: 10px 40px 10px 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  background-color: #f5f5f5;
+}
+
+.search-btn {
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 100%;
+  width: 40px;
+  background-color: #3a6b35;
+  color: white;
+  border: none;
+  border-radius: 0 4px 4px 0;
+  cursor: pointer;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .contact-content {
+    flex-direction: column;
+  }
+
+  .copyright {
+    flex-direction: column;
+    gap: 10px;
+  }
+}
+
+/* Market Modal Styling */
+.market-modal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background-color: #f8f9fa; /* Light gray background */
+  color: #333; /* Dark gray text */
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.market-header h1 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 10px;
+  color: #00863f; /* Green color */
+}
+
+.market-header p {
+  font-size: 1rem;
+  text-align: center;
+  margin-bottom: 20px;
+  color: #555; /* Medium gray */
+}
+
+.market-content {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  width: 100%;
+}
+
+.product-card {
+  flex: 1;
+  max-width: 300px;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  padding: 20px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+.product-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 10px 10px 0 0;
+  margin-bottom: 15px;
+}
+
+.product-card h3 {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.product-card .price {
+  font-size: 1.2rem;
+  color: #00863f; /* Green color for price */
+  margin-bottom: 15px;
+}
+
+.product-card .btn-primary {
+  background-color: #00863f; /* Green color */
+  color: white;
+  padding: 10px 20px;
+  font-size: 1rem;
+  font-weight: bold;
+  border: none;make 
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.product-card .btn-primary:hover {
+  background-color: #005f2d; /* Darker green on hover */
+  transform: scale(1.05); /* Slight zoom effect */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .market-content {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .product-card {
+    max-width: 100%;
+  }
+}
+
+/* Modal Styling to Mimic Sections */
+.modal-section {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); /* Semi-transparent overlay */
+  z-index: 1050;
+  overflow-y: auto;
+}
+
+.modal-content {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background: none;
+  border: none;
+  box-shadow: none;
+}
+
+.modal-image {
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: white;
+  padding: 20px;
+  position: relative;
+}
+
+.modal-image h3 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+.modal-image p {
+  font-size: 1.2rem;
+  max-width: 80%;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+}
+
+.modal-header {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 1100;
+}
+
+.close-button {
+  font-size: 2rem;
+  color: white;
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.modal-body {
+  background: rgba(255, 255, 255, 0.9);
+  padding: 20px;
+  margin: 20px;
+  border-radius: 5px;
+}
+
+/* Specific modal overrides */
+.market-modal {
+  background: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.market-header,
+.market-content {
+  background: rgba(255, 255, 255, 0.9);
+  padding: 20px;
+  margin: 10px;
+  border-radius: 5px;
+  width: 90%;
+  max-width: 1200px;
+}
+
+.product-card {
+  background: white;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 5px;
 }
