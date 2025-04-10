@@ -94,23 +94,20 @@
         </div>
       </div>
 
-    <!-- Our Mission Modal -->
-<div id="missionModal" class="modal-section">
-  <div class="modal-content">
-    <div class="modal-header">
-      <button class="close-button" aria-label="Close Modal" onclick="closeModal('mission')">×</button>
-    </div>
-    <div class="modal-image" style="background-image: url('images/about.jpg');">
-      <div class="modal-image-overlay">
-        <h3>Our Mission</h3>
-      </div>
-    </div>
-    <div class="modal-body"></div>
-      <h4>Driving Agricultural Innovation</h4>
-      <p>Our mission is to revolutionize agriculture by providing farmers with cutting-edge technology, sustainable practices, and expert guidance.</p>
-    </div>
-  </div>
-</div>
+      <!-- Our Mission Modal -->
+      <div id="missionModal" class="modal-section">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button class="close-button" aria-label="Close Modal" onclick="closeModal('mission')">×</button>
+          </div>
+          <div class="modal-image" style="background-image: url('images/about.jpg');">
+            <div class="modal-image-overlay">
+              <h3>Our Mission</h3>
+              <h4>Driving Agricultural Innovation</h4>
+          <p>Our mission is to fundamentally reshape agriculture by directly empowering farmers through the provision of cutting-edge technology, environmentally and economically sound sustainable practices, and crucial expert guidance, thereby aiming for a significant and positive transformation of the agricultural sector towards greater efficiency, productivity, and long-term viability for both the producers and the environment.</p>
+            </div> 
+          </div>
+        </div>
 
       <!-- Our Team Modal -->
       <div id="teamModal" class="modal-section">
@@ -125,19 +122,25 @@
             <h4>Meet Our Experts</h4>
             <div class="team-members">
               <div class="team-member">
-                <img src="images/team1.jpg" alt="Agricultural Expert">
-                <h5>John Doe</h5>
-                <p>Agricultural Specialist</p>
+                <img src="images/about.jpg" alt="Agricultural Expert">
+                <div class="member-info">
+                  <h5>John Doe</h5>
+                  <p>Agricultural Specialist</p>
+                </div>
               </div>
               <div class="team-member">
-                <img src="images/team2.jpg" alt="Veterinary Expert">
-                <h5>Jane Smith</h5>
-                <p>Veterinary Doctor</p>
+                <img src="images/weather.jpg" alt="Veterinary Expert">
+                <div class="member-info">
+                  <h5>Jane Smith</h5>
+                  <p>Veterinary Doctor</p>
+                </div>
               </div>
               <div class="team-member">
-                <img src="images/team3.jpg" alt="Market Expert">
-                <h5>Mike Johnson</h5>
-                <p>Market Analyst</p>
+                <img src="images/market.jpg" alt="Market Expert">
+                <div class="member-info">
+                  <h5>Mike Johnson</h5>
+                  <p>Market Analyst</p>
+                </div>
               </div>
             </div>
             <p>Our team consists of passionate professionals dedicated to supporting farmers and driving positive change
@@ -225,13 +228,15 @@
           </div>
           <div class="modal-image" style="background-image: url('images/vetcare.jpg');">
             <h3>Veterinary Care</h3>
+            <div class="modal-body" style="display: none;">
+              <h4>Expert Veterinary Services</h4>
+              div class="modal-body" style="display: none;">
+            <h4>Expert Veterinary Services</h4>
+            <p>We provide professional veterinary care to ensure your livestock remains healthy and productive.</p>
+          </div>
             <button class="btn btn-primary are-button">
               Learn More
             </button>
-          </div>
-          <div class="modal-body" style="display: none;">
-            <h4>Expert Veterinary Services</h4>
-            <p>We provide professional veterinary care to ensure your livestock remains healthy and productive.</p>
           </div>
         </div>
       </div>
@@ -258,90 +263,176 @@
 
       <!-- Marketplace Modal -->
       <div id="marketplaceModal" class="modal-section">
-        <div class="modal-content">
-          <div class="modal-header">
-            <button class="close-button" aria-label="Close Modal">×</button>
+        <div class="modal-content marketplace-modal">
+          <div class="modal-header"
+            style="background-image: url('images/market.jpg'); background-size: cover; background-position: center;">
+            <div class="header-overlay">
+              <h3 class="modal-title">Marketplace</h3>
+              <button class="close-button active" aria-label="Close Modal" onclick="closeModal('marketplace')">
+                <i class="fas fa-times"></i>
+              </button>
+            </div>
           </div>
-          <div class="modal-image" style="background-image: url('images/market.jpg');">
-            <h3>Marketplace</h3>
-            <button class="btn btn-primary are-button">
-              Explore More
-            </button>
-          </div>
-          <div class="modal-body" style="display: none;">
-            <h4>Connect With Markets</h4>
-            <p>Our platform connects farmers directly with buyers and suppliers for fair prices.</p>
+          <div class="modal-body">
+            <!-- Hero Section -->
+            <div class="hero-section">
+              <div class="container">
+                <h2>FARM NEST Marketplace</h2>
+                <p>Connect with farmers, buyers, and suppliers to buy and sell agricultural products, equipment, and
+                  services across Kenya.</p>
+              </div>
+            </div>
+
+            <!-- Filter Section -->
+            <div class="filter-section">
+              <div class="container">
+                <div class="filter-container">
+                  <div class="filter-group">
+                    <span class="filter-label">Category:</span>
+                    <select class="filter-select">
+                      <option>All Categories</option>
+                      <option>Crops & Seeds</option>
+                      <option>Livestock & Poultry</option>
+                      <option>Farm Equipment</option>
+                      <option>Agricultural Inputs</option>
+                      <option>Services</option>
+                    </select>
+                  </div>
+                  <div class="filter-group">
+                    <span class="filter-label">Location:</span>
+                    <select class="filter-select">
+                      <option>All Locations</option>
+                      <option>Nairobi</option>
+                      <option>Mombasa</option>
+                      <option>Nakuru</option>
+                      <option>Kisumu</option>
+                      <option>Eldoret</option>
+                    </select>
+                  </div>
+                  <div class="filter-group">
+                    <span class="filter-label">Price Range:</span>
+                    <select class="filter-select">
+                      <option>Any Price</option>
+                      <option>Under KSh 1,000</option>
+                      <option>KSh 1,000 - 5,000</option>
+                      <option>KSh 5,000 - 10,000</option>
+                      <option>KSh 10,000 - 50,000</option>
+                      <option>Over KSh 50,000</option>
+                    </select>
+                  </div>
+                  <div class="search-box">
+                    <input type="text" class="search-input" placeholder="Search by keywords...">
+                    <button class="search-btn">Search</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Market Products Section -->
+            <div class="market-section">
+              <div class="container">
+                <div class="section-header">
+                  <h2 class="section-title">Available Products</h2>
+                  <div class="view-options">
+                    <button class="view-btn grid-view active" onclick="setGridView()">
+                      <i class="fas fa-th"></i>
+                    </button>
+                    <button class="view-btn list-view" onclick="setListView()">
+                      <i class="fas fa-list"></i>
+                    </button>
+                    <select class="sort-select">
+                      <option>Latest First</option>
+                      <option>Oldest First</option>
+                      <option>Price: Low to High</option>
+                      <option>Price: High to Low</option>
+                    </select>
+                  </div>
+                </div>
+
+                <!-- Products Grid View -->
+                <div class="products-grid">
+                  <!-- Product cards would be dynamically loaded here -->
+                </div>
+
+                <!-- Products List View -->
+                <div class="products-list" style="display:none;">
+                  <!-- Product list items would be dynamically loaded here -->
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
 
-   <!-- Weather Section -->
-<section id="weather" class="weather-section">
-  <div class="container">
-    <div class="weather-content">
-      <!-- Climate Information -->
-      <div class="climate-info">
-        <h2 class="climate-title">WEATHER UPDATES</h2>
-        <p class="climate-subtitle">
-          Creating valuable insights for Farmers through Weather, Agronomics with better Precision.
-        </p>
+    <!-- Weather Section -->
+    <section id="weather" class="weather-section">
+      <div class="container">
+        <div class="weather-content">
+          <!-- Climate Information -->
+          <div class="climate-info">
+            <h2 class="climate-title">WEATHER UPDATES</h2>
+            <p class="climate-subtitle">
+              Creating valuable insights for Farmers through Weather, Agronomics with better Precision.
+            </p>
 
-        <!-- Current Location with Dropdown -->
-        <div class="location-selection">
-          <select class="county-dropdown" aria-label="Select your county">
-            <option value="" disabled selected>Select county</option>
-            <option value="isiolo">Isiolo</option>
-            <option value="mombasa">Mombasa</option>
-            <option value="kisumu">Kisumu</option>
-            <option value="nakuru">Nakuru</option>
-            <option value="eldoret">Eldoret</option>
-          </select>
-          <select class="constituency-dropdown" aria-label="Select your constituency">
-            <option value="" disabled selected>Select constituency</option>
-            <option value="isiolo-north">Isiolo North</option>
-            <option value="isiolo-south">Isiolo South</option>
-          </select>
-          <select class="ward-dropdown" aria-label="Select your ward">
-            <option value="" disabled selected>Select ward</option>
-            <option value="burat">Burat</option>
-            <option value="ngaremara">Ngaremara</option>
-          </select>
-          <button class="submit-btn">SUBMIT</button>
-        </div>
-      </div>
-
-      <!-- Agronomic Advisory -->
-      <div class="agronomic-advisory">
-        <h3 class="advisory-title">AGRONOMIC ADVISORY</h3>
-        <div class="advisory-content">
-          <p>
-            Our Agronomics content lets farmers have the right information to monitor and predict the current situation and get them ahead of the game
-          </p>
-        </div>
-        <div class="carousel-controls">
-          <button class="carousel-prev" aria-label="Previous slide">&#10094;</button>
-          <div class="carousel-dots">
-            <span class="dot active"></span>
-            <span class="dot"></span>
-            <span class="dot"></span>
+            <!-- Current Location with Dropdown -->
+            <div class="location-selection">
+              <select class="county-dropdown" aria-label="Select your county">
+                <option value="" disabled selected>Select county</option>
+                <option value="isiolo">Isiolo</option>
+                <option value="mombasa">Mombasa</option>
+                <option value="kisumu">Kisumu</option>
+                <option value="nakuru">Nakuru</option>
+                <option value="eldoret">Eldoret</option>
+              </select>
+              <select class="constituency-dropdown" aria-label="Select your constituency">
+                <option value="" disabled selected>Select constituency</option>
+                <option value="isiolo-north">Isiolo North</option>
+                <option value="isiolo-south">Isiolo South</option>
+              </select>
+              <select class="ward-dropdown" aria-label="Select your ward">
+                <option value="" disabled selected>Select ward</option>
+                <option value="burat">Burat</option>
+                <option value="ngaremara">Ngaremara</option>
+              </select>
+              <button class="submit-btn">SUBMIT</button>
+            </div>
           </div>
-          <button class="carousel-next" aria-label="Next slide">&#10095;</button>
+
+          <!-- Agronomic Advisory -->
+          <div class="agronomic-advisory">
+            <h3 class="advisory-title">AGRONOMIC ADVISORY</h3>
+            <div class="advisory-content">
+              <p>
+                Our Agronomics content lets farmers have the right information to monitor and predict the current
+                situation and get them ahead of the game
+              </p>
+            </div>
+            <div class="carousel-controls">
+              <button class="carousel-prev" aria-label="Previous slide">&#10094;</button>
+              <div class="carousel-dots">
+                <span class="dot active"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+              </div>
+              <button class="carousel-next" aria-label="Next slide">&#10095;</button>
+            </div>
+          </div>
+
+          <!-- Red Button -->
+          <button class="action-btn" aria-label="Action button">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"></circle>
+              <path d="M12 8v4"></path>
+              <path d="M12 16h.01"></path>
+            </svg>
+          </button>
         </div>
       </div>
-
-      <!-- Red Button -->
-      <button class="action-btn" aria-label="Action button">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <circle cx="12" cy="12" r="10"></circle>
-          <path d="M12 8v4"></path>
-          <path d="M12 16h.01"></path>
-        </svg>
-      </button>
-    </div>
-  </div>
-</section>
+    </section>
 
     <!-- Knowledge Base Section -->
     <section id="knowledge">
@@ -355,7 +446,8 @@
               <div class="card-body">
                 <i class="fas fa-book"></i>
                 <h3 class="card-title">Agriculture Guides</h3>
-                <p class="card-text">Detailed guides on crop cultivation, soil management, pest control, and sustainable farming practices.</p>
+                <p class="card-text">Detailed guides on crop cultivation, soil management, pest control, and sustainable
+                  farming practices.</p>
                 <button onclick="openModal('agricultureguides')" class="btn btn-primary">Access Guides</button>
               </div>
             </div>
@@ -368,7 +460,8 @@
               <div class="card-body">
                 <i class="fas fa-first-aid"></i>
                 <h3 class="card-title">Veterinary Care Resources</h3>
-                <p class="card-text">Comprehensive resources for livestock health, disease prevention, and treatment options.</p>
+                <p class="card-text">Comprehensive resources for livestock health, disease prevention, and treatment
+                  options.</p>
                 <button onclick="openModal('veterinaryresources')" class="btn btn-primary">Learn More</button>
               </div>
             </div>
@@ -381,7 +474,8 @@
               <div class="card-body">
                 <i class="fas fa-bug"></i>
                 <h3 class="card-title">Pest Management Resources</h3>
-                <p class="card-text">Expert advice on integrated pest management, organic pest control methods, and chemical pest control options.</p>
+                <p class="card-text">Expert advice on integrated pest management, organic pest control methods, and
+                  chemical pest control options.</p>
                 <button onclick="openModal('pestmanagement')" class="btn btn-primary">Explore Resources</button>
               </div>
             </div>
@@ -489,7 +583,8 @@
               <div class="card-body">
                 <i class="fas fa-comments"></i>
                 <h3 class="card-title">Feedback</h3>
-                <p class="card-text">Share your thoughts and help us improve our services by providing valuable feedback.</p>
+                <p class="card-text">Share your thoughts and help us improve our services by providing valuable
+                  feedback.</p>
                 <button onclick="openModal('feedback')" class="btn btn-primary">Submit Feedback</button>
               </div>
             </div>
