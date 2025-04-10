@@ -5,8 +5,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   if (navbar) {
     window.addEventListener("scroll", function () {
-      const scrollTop =
-        window.pageYOffset || document.documentElement.scrollTop;
+      const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
       navbar.classList.toggle("hidden", scrollTop > lastScrollTop);
       lastScrollTop = Math.max(0, scrollTop); // Prevent negative scroll values
     });
@@ -16,11 +15,10 @@ document.addEventListener("DOMContentLoaded", function () {
   const modals = document.querySelectorAll(".modal-section");
   modals.forEach((modal) => (modal.style.display = "none"));
 
-  // Add event listeners to buttons
+  // Add event listeners to buttons for opening modals
   document.querySelectorAll(".btn-primary, .are-button").forEach((button) => {
     button.addEventListener("click", function () {
-      const modalId =
-        this.getAttribute("onclick")?.match(/openModal\('(\w+)'\)/)?.[1];
+      const modalId = this.getAttribute("onclick")?.match(/openModal\('(\w+)'\)/)?.[1];
       if (modalId) openModal(modalId);
     });
   });
@@ -55,7 +53,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
-  // Weather button functionality
+  // Weather button functionality (if applicable)
   const weatherBtn = document.getElementById("weatherBtn");
   if (weatherBtn) {
     weatherBtn.addEventListener("click", function () {
@@ -95,9 +93,7 @@ document.addEventListener("DOMContentLoaded", function () {
         return;
       }
 
-      alert(
-        "Thank you for your message. The Farm Nest team will get back to you soon!"
-      );
+      alert("Thank you for your message. The Farm Nest team will get back to you soon!");
       contactForm.reset();
     });
   }
@@ -107,6 +103,40 @@ document.addEventListener("DOMContentLoaded", function () {
   if (whatsappBtn) {
     whatsappBtn.addEventListener("click", function () {
       window.open("https://wa.me/254722334455", "_blank");
+    });
+  }
+
+  // Carousel functionality for Agronomic Advisory
+  const prevBtn = document.querySelector('.carousel-prev');
+  const nextBtn = document.querySelector('.carousel-next');
+  const dots = document.querySelectorAll('.carousel-dots .dot');
+  let currentSlide = 0;
+
+  if (prevBtn && nextBtn && dots.length > 0) {
+    const updateDots = () => {
+      dots.forEach((dot, index) => {
+        dot.classList.toggle('active', index === currentSlide);
+      });
+    };
+
+    prevBtn.addEventListener('click', () => {
+      currentSlide = (currentSlide - 1 + dots.length) % dots.length;
+      updateDots();
+      // Add logic to change slide content if more slides are added
+    });
+
+    nextBtn.addEventListener('click', () => {
+      currentSlide = (currentSlide + 1) % dots.length;
+      updateDots();
+      // Add logic to change slide content if more slides are added
+    });
+
+    dots.forEach((dot, index) => {
+      dot.addEventListener('click', () => {
+        currentSlide = index;
+        updateDots();
+        // Add logic to change slide content if more slides are added
+      });
     });
   }
 

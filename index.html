@@ -94,25 +94,23 @@
         </div>
       </div>
 
-      <!-- Our Mission Modal -->
-      <div id="missionModal" class="modal-section">
-        <div class="modal-content">
-          <div class="modal-header">
-            <button class="close-button" aria-label="Close Modal" onclick="closeModal('mission')">×</button>
-          </div>
-          <div class="modal-image" style="background-image: url('images/about.jpg');">
-            <h3>Our Mission</h3>
-            <button class="btn btn-primary are-button">
-              Learn More
-            </button>
-          </div>
-          <div class="modal-body" style="display: none;">
-            <h4>Driving Agricultural Innovation</h4>
-            <p>Our mission is to revolutionize agriculture by providing farmers with cutting-edge technology,
-              sustainable practices, and expert guidance.</p>
-          </div>
-        </div>
+    <!-- Our Mission Modal -->
+<div id="missionModal" class="modal-section">
+  <div class="modal-content">
+    <div class="modal-header">
+      <button class="close-button" aria-label="Close Modal" onclick="closeModal('mission')">×</button>
+    </div>
+    <div class="modal-image" style="background-image: url('images/about.jpg');">
+      <div class="modal-image-overlay">
+        <h3>Our Mission</h3>
       </div>
+    </div>
+    <div class="modal-body"></div>
+      <h4>Driving Agricultural Innovation</h4>
+      <p>Our mission is to revolutionize agriculture by providing farmers with cutting-edge technology, sustainable practices, and expert guidance.</p>
+    </div>
+  </div>
+</div>
 
       <!-- Our Team Modal -->
       <div id="teamModal" class="modal-section">
@@ -279,24 +277,71 @@
     </section>
 
 
-    <!-- Weather Section -->
-    <section id="weather">
-      <h2 class="heading">Weather <span>Updates</span></h2>
-      <div class="container">
-        <div class="row">
-          <div class="col-md-6 mx-auto">
-            <div class="input-group mb-3">
-              <input type="text" id="locationInput" class="form-control" placeholder="Enter location"
-                aria-label="Enter location">
-              <button class="btn btn-primary" id="weatherBtn" type="button">Get Weather</button>
-            </div>
-            <div id="weatherResults"></div>
-          </div>
+   <!-- Weather Section -->
+<section id="weather" class="weather-section">
+  <div class="container">
+    <div class="weather-content">
+      <!-- Climate Information -->
+      <div class="climate-info">
+        <h2 class="climate-title">WEATHER UPDATES</h2>
+        <p class="climate-subtitle">
+          Creating valuable insights for Farmers through Weather, Agronomics with better Precision.
+        </p>
+
+        <!-- Current Location with Dropdown -->
+        <div class="location-selection">
+          <select class="county-dropdown" aria-label="Select your county">
+            <option value="" disabled selected>Select county</option>
+            <option value="isiolo">Isiolo</option>
+            <option value="mombasa">Mombasa</option>
+            <option value="kisumu">Kisumu</option>
+            <option value="nakuru">Nakuru</option>
+            <option value="eldoret">Eldoret</option>
+          </select>
+          <select class="constituency-dropdown" aria-label="Select your constituency">
+            <option value="" disabled selected>Select constituency</option>
+            <option value="isiolo-north">Isiolo North</option>
+            <option value="isiolo-south">Isiolo South</option>
+          </select>
+          <select class="ward-dropdown" aria-label="Select your ward">
+            <option value="" disabled selected>Select ward</option>
+            <option value="burat">Burat</option>
+            <option value="ngaremara">Ngaremara</option>
+          </select>
+          <button class="submit-btn">SUBMIT</button>
         </div>
       </div>
-    </section>
 
+      <!-- Agronomic Advisory -->
+      <div class="agronomic-advisory">
+        <h3 class="advisory-title">AGRONOMIC ADVISORY</h3>
+        <div class="advisory-content">
+          <p>
+            Our Agronomics content lets farmers have the right information to monitor and predict the current situation and get them ahead of the game
+          </p>
+        </div>
+        <div class="carousel-controls">
+          <button class="carousel-prev" aria-label="Previous slide">&#10094;</button>
+          <div class="carousel-dots">
+            <span class="dot active"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+          </div>
+          <button class="carousel-next" aria-label="Next slide">&#10095;</button>
+        </div>
+      </div>
 
+      <!-- Red Button -->
+      <button class="action-btn" aria-label="Action button">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="10"></circle>
+          <path d="M12 8v4"></path>
+          <path d="M12 16h.01"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+</section>
 
     <!-- Knowledge Base Section -->
     <section id="knowledge">
@@ -639,6 +684,7 @@
 
     <!-- Link to your custom JavaScript -->
     <script src="nav.js"></script>
+    <script src="carousel.js"></script>
 </body>
 
 </html>

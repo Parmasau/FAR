@@ -29,7 +29,9 @@ header {
   background-color: #0c7c3e;
   display: flex;
   justify-content: center;
-  padding: 0;
+  align-items: center;
+  padding: 10px 0;
+  margin-left: 200px;
   position: relative;
   z-index: 1000;
 }
@@ -239,21 +241,202 @@ section {
   color: #666;
 }
 
-/* Weather Section */
-#weather {
-  padding: 50px 0;
-  background-color: #f9f9f9;
+/* Weather Section Styling */
+.weather-section {
+  background-image: url('images/weather.jpg'); /* Replace with the actual path to your background image */
+  background-size: cover;
+  background-position: center;
+  padding: 60px 0;
+  color: #fff;
+  position: relative;
+  min-height: 600px;
+  display: flex;
+  align-items: center;
 }
 
-#weather .input-group {
+.weather-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 1;
+}
+
+.weather-section .container {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 1200px;
+  padding: 0 20px;
+}
+
+.weather-section .weather-content {
+  text-align: center;
+}
+
+/* Climate Information */
+.weather-section .climate-info {
+  margin-bottom: 40px;
+}
+
+.weather-section .climate-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+}
+
+.weather-section .climate-subtitle {
+  font-size: 1.1rem;
+  color: #fff;
+  margin-bottom: 30px;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Location Selection */
+.weather-section .location-selection {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.weather-section .county-dropdown,
+.weather-section .constituency-dropdown,
+.weather-section .ward-dropdown {
+  padding: 10px 15px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 5px;
+  background: rgba(255, 255, 255, 0.9);
+  font-size: 1rem;
+  color: #333;
+  outline: none;
+  cursor: pointer;
+  min-width: 150px;
+}
+
+.weather-section .submit-btn {
+  padding: 10px 30px;
+  background-color: #00a99d;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.weather-section .submit-btn:hover {
+  background-color: #008c82;
+}
+
+/* Agronomic Advisory */
+.weather-section .agronomic-advisory {
+  background: rgba(0, 169, 157, 0.9);
+  border-radius: 15px;
+  padding: 20px;
+  max-width: 500px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.weather-section .advisory-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 15px;
+  text-transform: uppercase;
+}
+
+.weather-section .advisory-content p {
+  font-size: 1rem;
+  color: #fff;
   margin-bottom: 20px;
 }
 
-#weatherResults .alert {
-  margin-top: 20px;
+/* Carousel Controls */
+.weather-section .carousel-controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
 }
 
-/* Modal Styles */
+.weather-section .carousel-prev,
+.weather-section .carousel-next {
+  background: rgba(255, 255, 255, 0.3);
+  border: none;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.weather-section .carousel-prev:hover,
+.weather-section .carousel-next:hover {
+  background: rgba(255, 255, 255, 0.5);
+}
+
+.weather-section .carousel-dots {
+  display: flex;
+  gap: 8px;
+}
+
+.weather-section .dot {
+  width: 8px;
+  height: 8px;
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.weather-section .dot.active {
+  background: #fff;
+}
+
+/* Action Button */
+.weather-section .action-btn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: #e74c3c;
+  border: none;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  cursor: pointer;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  transition: background 0.3s ease;
+}
+
+.weather-section .action-btn:hover {
+  background: #c0392b;
+}
+
+.weather-section .action-btn svg {
+  width: 24px;
+  height: 24px;
+}
+
+/* Existing Modal Styles (for Contact Modal, etc.) */
 .modal-section {
   display: none;
   position: fixed;
@@ -264,9 +447,10 @@ section {
   background: rgba(0, 0, 0, 0.8);
   z-index: 1000;
   overflow: hidden;
+  overflow-y: auto; /* Enable scrolling for long content */
 }
 
-.modal-content {
+.modal-section:not(.modern-modal) .modal-content {
   width: 100%;
   height: 100%;
   display: flex;
@@ -277,9 +461,11 @@ section {
   padding: 0;
   background: none;
   overflow: hidden;
+  padding: 20px;
+  background: white; /* White background for content */
 }
 
-.modal-image {
+.modal-section:not(.modern-modal) .modal-image {
   position: absolute;
   top: 0;
   left: 0;
@@ -291,35 +477,36 @@ section {
   z-index: 1;
 }
 
-.modal-body {
+.modal-section:not(.modern-modal) .modal-body {
   position: relative;
   z-index: 2;
   color: white;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
   text-align: center;
   padding: 20px;
+  color: black;
 }
 
-.modal-body h4 {
+.modal-section:not(.modern-modal) .modal-body h4 {
   font-size: 2rem;
   font-weight: bold;
   margin-bottom: 20px;
 }
 
-.modal-body p {
+.modal-section:not(.modern-modal) .modal-body p {
   font-size: 1.2rem;
   line-height: 1.6;
   margin-bottom: 20px;
 }
 
-.modal-header {
+.modal-section:not(.modern-modal) .modal-header {
   position: absolute;
   top: 10px;
   right: 20px;
   z-index: 3;
 }
 
-.close-button {
+.modal-section:not(.modern-modal) .close-button {
   background: none;
   border: none;
   font-size: 2rem;
@@ -329,8 +516,95 @@ section {
   transition: color 0.3s ease;
 }
 
-.close-button:hover {
+.modal-section:not(.modern-modal) .close-button:hover {
   color: red;
+}
+
+/* New Modal Styles (for Our Mission Modal, etc.) */
+.modal-section.modern-modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 1000;
+  overflow-y: auto;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-section.modern-modal .modal-content {
+  background: #fff;
+  border-radius: 10px; /* Slightly less rounded for a more professional look */
+  max-width: 600px;
+  width: 90%;
+  margin: 20px auto;
+  position: relative;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Slightly stronger shadow for depth */
+  overflow: hidden;
+  border: 1px solid var(--primary-color); /* Add a border to match Farm Nest's theme */
+}
+
+.modal-section.modern-modal .modal-header {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  z-index: 2;
+}
+
+.modal-section.modern-modal .modal-header .close-button {
+  background: #e74c3c;
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.modal-section.modern-modal .modal-header .close-button:hover {
+  background: #c0392b;
+}
+
+.modal-section.modern-modal .modal-body {
+  padding: 40px 30px; /* Adjusted padding for a more balanced look */
+  background: #f9f9f9; /* Slightly off-white background for a clean, professional look */
+  color: #333;
+  text-align: center; /* Center-align the content inside modal-body */
+  min-height: 250px; /* Ensure the modal has a minimum height for balance */
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Center content vertically */
+  align-items: center; /* Center content horizontally */
+  border-top: 3px solid var(--primary-color); /* Add a top border to mimic KALRO's structured look */
+}
+
+.modal-section.modern-modal .modal-body h4 {
+  font-size: 2rem; /* Larger font size for prominence, similar to KALRO's heading */
+  font-weight: 700;
+  color: var(--primary-color); /* Use Farm Nest's primary green */
+  margin-bottom: 25px; /* Increased margin for better spacing */
+  text-transform: uppercase; /* Match KALRO's formal style */
+  letter-spacing: 1px; /* Add slight letter spacing for a professional look */
+  border-bottom: 2px solid var(--secondary-color); /* Add an underline to mimic KALRO's structured design */
+  padding-bottom: 5px; /* Space between text and underline */
+}
+
+.modal-section.modern-modal .modal-body p {
+  font-size: 1.2rem; /* Slightly larger for readability, matching KALRO's clear presentation */
+  line-height: 1.7; /* Adjusted line spacing for better readability */
+  color: #444; /* Slightly darker for contrast */
+  max-width: 85%; /* Slightly wider than before to fill the space */
+  margin: 0 auto; /* Center the paragraph horizontally */
+  padding: 15px 20px; /* Increased padding for a more defined block */
+  background: rgba(129, 199, 132, 0.15); /* Use Farm Nest's secondary color with low opacity */
+  border-left: 4px solid var(--primary-color); /* Add a left border to mimic KALRO's structured layout */
+  border-radius: 3px; /* Slightly rounded corners for a softer look */
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05); /* Lighter shadow for a subtle lift */
 }
 
 /* Contact Form Styles */
@@ -491,12 +765,16 @@ footer p {
     text-align: center;
   }
 
-  .modal-body h4 {
-    font-size: 1.5rem;
+  .modal-section:not(.modern-modal) .modal-body h4,
+  .modal-section.modern-modal .modal-body h4 {
+    font-size: 1.6rem; /* Slightly smaller for smaller screens */
   }
 
-  .modal-body p {
-    font-size: 1rem;
+  .modal-section:not(.modern-modal) .modal-body p,
+  .modal-section.modern-modal .modal-body p {
+    font-size: 1.1rem; /* Slightly smaller for smaller screens */
+    max-width: 90%; /* Adjust for smaller screens */
+    padding: 10px 15px; /* Adjust padding for smaller screens */
   }
 
   .contact-container {
